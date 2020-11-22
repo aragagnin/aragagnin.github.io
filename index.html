@@ -27,11 +27,18 @@
             p::before {
                 content: "\00B7";
             }
+            @media only screen and (max-width: 600px) {
+              .divide {
+                  display:block;
+                  clear:both;
+               }
+            }
         </style>
     </head>
     <body>
         <img alt="Antonio Ragagnin photo" src="antonio_ragagnin.png" style="float: left; margin-right: 1em; border-radius: 0.5em;" />
         <h1>Antonio Ragagnin<sup>1,2</sup></h1>
+        <span class="divide"></span>
         <small><sup>1</sup><i>INAF - Osservatorio Astronomico, via Tiepolo 11, 34131 Trieste, Italy</i><br /></small>
         <small><sup>2</sup><i>IFPU - Institute for Fundamental Physics of the Universe, Via Beirut 2, 34014 Trieste, Italy</i><br /></small>
         <small><sup> &#x2605;</sup><code>antonio.ragagnin@inaf.it</code></small>
