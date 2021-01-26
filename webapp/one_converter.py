@@ -120,6 +120,7 @@ def on_change_try(ev):
     
 for e in document.select('[name]'):
     e.bind("change", on_change_try)
+    e.bind("keyup", on_change_try)
 
 
 _default_values = {"delta1_5":"500c","M_6":"3e14","delta2_7":"200m","omega_b_1":".04","z_4":"1.","h0_3":".704","sigma8_2":".8","omega_m_0":".301"}
