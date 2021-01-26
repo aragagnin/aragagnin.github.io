@@ -136,8 +136,8 @@ def mass_from_mm_relation(delta_from, delta_to, M, a, omega_m, omega_b, sigma8, 
     if show_fit_parameters:
                     print_fit_params_and_pivots(__mm_fit_parameters[delta_from][delta_to])
     if table is None:
-        print(_mm_fit_parameters.keys())
-        print(_mm_fit_parameters[delta_from].keys())
+        print(__mm_fit_parameters.keys())
+        print(__mm_fit_parameters[delta_from].keys())
         
         table = __mm_fit_parameters[delta_from][delta_to]
         print(table)
