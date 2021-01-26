@@ -49,7 +49,7 @@ def on_change(ev):
         k = e.attrs['name']
         v_str = e.value
         if v_str=='':
-            raise Exception('Field %s is empty'%k)
+            raise Exception('Some fields are empty')
         #
         # decide if we have to convert form element to either float or string (es. '200c')
         #
