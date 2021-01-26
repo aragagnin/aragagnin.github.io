@@ -69,14 +69,14 @@ def on_change(ev):
     print(form)
     
     form['a'] = 1./(1.+form['z'])
-    document['a'] = '(%.3f)'%(form['a'])
+    document['a'].html = '(%.3f)'%(form['a'])
 
     #
     # compute concentration of delta1
     #
     c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
     print(c_delta1)
-    document['c_delta1'] = '(c<sub>%s</sub> = %.3f)'%(form['delta1'], c_delta1)
+    document['c_delta1'].html = '(c<sub>%s</sub> = %.3f)'%(form['delta1'], c_delta1)
     
     #
     # compute delta2 data
@@ -86,8 +86,8 @@ def on_change(ev):
 
     print(M_delta2)
     print(c_delta2)
-    document['M_delta2'] = '(M<sub>%s</sub> = %s)'%(form['delta2'], put_exponent('%.3e'%M_delta2))
-    document['c_delta1'] = '(c<sub>%s</sub> = %.3f)'%(form['delta2'], c_delta2)
+    document['M_delta2'].html = '(M<sub>%s</sub> = %s)'%(form['delta2'], put_exponent('%.3e'%M_delta2))
+    document['c_delta1'].html = '(c<sub>%s</sub> = %.3f)'%(form['delta2'], c_delta2)
     
 def on_change_try(ev):
     document['error'].html = ''
