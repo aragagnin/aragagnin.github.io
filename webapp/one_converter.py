@@ -46,11 +46,10 @@ def on_change(ev):
     # loop on form elements
     #
     for e in document.select('form [name]'):
-        print(e)
         k = e.attrs['name']
-        print(k)
         v_str = e.value
-        print(v_str)
+        if v_str=='':
+            raise Exception('Field %s is empty'%k)
         #
         # decide if we have to convert form element to either float or string (es. '200c')
         #
@@ -75,7 +74,7 @@ def on_change(ev):
     # compute concentration of delta1
     #
     c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
-    print(c_delta1)
+    print('c_Delta1',c_delta1)
     document['c_delta1'].html = '(c<sub>%s</sub> = %.3f)'%(form['delta1'], c_delta1)
 
     if (form['delta1']==form['delta2']):
@@ -87,8 +86,8 @@ def on_change(ev):
     M_delta2 = hydro_mc.mass_from_mm_relation(form['delta1'], form['delta2'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
     c_delta2 = hydro_mc.concentration_from_mc_relation(form['delta2'], M_delta2, form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
 
-    print(M_delta2)
-    print(c_delta2)
+    print('Mdelta2',M_delta2)
+    print('cdelta2',c_delta2)
     document['M_delta2'].html = '(M<sub>%s</sub> = %s)'%(form['delta2'], put_exponent('%.3e'%M_delta2))
     document['c_delta1'].html = '(c<sub>%s</sub> = %.3f)'%(form['delta2'], c_delta2)
     
