@@ -7,7 +7,7 @@ from browser import document, window
 alert = window.alert
 from browser.local_storage import storage
 
-"""
+
 def store():
     #save form values in internal browser memory
     for i,e in enumerate(document.select('input, select')):
@@ -24,7 +24,7 @@ def restore(default_values):
             e.value = storage[k]
         elif k in default_values:
             e.value = default_values[k]
-"""
+
 
 
 def put_exponent(s):
@@ -108,7 +108,7 @@ for e in document.select('[name]'):
     e.bind("change", on_change_try)
 
 #_default_values = {"M_5":"2e14","delta_ignore_6":"200c","cdelta_result_8":"3.8661","omega_b_1":"0.04","z_ignore_4":"0.0","h0_3":"0.7","output_ignore_7":"c","sigma8_2":"0.8","omega_m_0":"0.3"}
-#restore(_default_values)
+restore({})
 
 document['loading'].style.display='none'
 
