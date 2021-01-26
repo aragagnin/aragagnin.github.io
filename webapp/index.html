@@ -40,39 +40,44 @@
       <form id="mix_form">
 	
 	<table>
-	  <tr><td>&Omega;<sub>m</sub>:</td><td>  <input name="omega_m">      </td></tr>
+	  <tr><td>&Omega;<sub>m</sub>:</td><td>  <input name="omega_m" >      </td></tr>
 	  <tr><td>       &Omega;<sub>b</sub>:</td><td>  <input name="omega_b">      </td></tr>
 	  <tr><td>       &sigma;<sub>8</sub>:</td><td>  <input name="sigma8">      </td></tr>
 	  <tr><td>       h<sub>0</sub>:</td><td>  <input name="h0">      </td></tr>
-	  <tr><td>       z:</td><td> <input name="z_ignore">      </td></tr>
-	  <tr><td>       M<sub>&Delta;</sub>:</td><td>  <input name="M" class="long">       [M<sub>&#x2299;</sub>]</td></tr>
+	  <tr><td>       z:</td><td> <input name="z"> <span id="a"></span>      </td></tr>
 	  <tr><td>       &Delta;:</td><td> 
-	      <select name="delta_ignore">
+	      <select name="delta1">
 		<option value="vir">vir</option>
 		<option value="200c">200c</option>
 		<option value="500c">500c</option>
 		<option value="2500c">2500c</option>
 		<option value="200m">200m</option>
 	      </select>
+	      <span id="c_delta1"></span>
 	  </td></tr>
-	  <tr><td>       Output:</td><td> 
-	      <select name="output_ignore">
-		<option value="c">c<sub>&Delta;</sub></option>
-		<option value="Mvir">M<sub>vir</sub></option>
-		<option value="M200c">M<sub>200c</sub></option>
-		<option value="M500c">M<sub>500c</sub></option>
-		<option value="M2500c">M<sub>2500c</sub></option>
-		<option value="M200m">M<sub>200m</sub></option>
+	  <tr><td>       M<sub>&Delta;</sub>:</td><td>  <input name="M" class="long">       [M<sub>&#x2299;</sub>]</td></tr>
+	  <tr><td>       Output:</td><td>
+	      <select name="delta2">
+		<option value="vir">vir</option>
+		<option value="200c">200c</option>
+		<option value="500c">500c</option>
+		<option value="2500c">2500c</option>
+		<option value="200m">200m</option>
+		
 	      </select>
 	  </td></tr>
 	  <tr class="space"></tr>
-	  <tr><td colspan=2 style="text-align:center">	      <button  id="mix_btn" type="button">Calculate &darr;</button></td></tr>
+	  <tr><td colspan=2 style="text-align:center">	 &darr; </td></tr>
 	  <tr class="space"></tr>
-	  <tr><td>  <span id="output_label"></td><td> <span id="mix_result"></span> <span id="output_units"></td></tr>
+	  <tr>
+	    <td>
+	      <span id="M_delta2"> </span>
+	      <span id="c_delta2"> </span>
+	  </td></tr>
 	</table>
       </form>
     </div>
-    
+    <span id="error"></span>
 
 </body>
 </html>
