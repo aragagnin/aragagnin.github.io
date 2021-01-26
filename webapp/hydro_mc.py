@@ -7,16 +7,23 @@ To use this software, just download the content of this repository.
 You can use it as an executable via `python hydro_mc.py --help` or as a library inside your python project by including `import hydro_mc`.
 
 """
+print('a1')
 __author__="Antonio Ragagnin (c) 2019"
 __version__="0.1"
 
+print('a2')
 
 
 import numpy as np
 
+print('a3')
+
 
 import sys
 import re
+
+print('a4')
+
 
 #start of fit parameters
 __mc_fit_parameters = {"vir": {"params": [1.503454114104443, -0.04283092691408333, 0.5157209989941997, 0.45445667750331026, -0.24856881467360964, 0.5544350140093234, -0.0048813484527866656, -0.12199409397642753, 0.11663423303800534, 0.05110946208460489, -0.07892747676338406, 0.24005903699741252, -0.1263499637381384, 0.6640188439939326, -0.0299567877892118, 0.3877956797872577], "pivots": {"M": 198759238503196.03, "a": 0.8771929824561403, "omega_m": 0.272, "omega_b": 0.0456, "sigma8": 0.809, "h0": 0.704}}, "200c": {"params": [1.2436364990990914, -0.04817261898156871, 0.20419215885982817, 0.6316820273466903, -0.24605297432854378, 0.560570072125268, -0.02627068018190943, -0.11775877953823762, 0.11193584169417208, 0.05634549061614718, -0.043822582719200295, 0.3524426183203193, -0.03879420539288709, 0.7673900896521332, -0.27569460666976725, 0.3843115348866266], "pivots": {"M": 173960723876953.16, "a": 0.8771929824561403, "omega_m": 0.272, "omega_b": 0.0456, "sigma8": 0.809, "h0": 0.704}}, "500c": {"params": [0.8637563855047179, -0.05344871238505832, 0.1878750841109432, 0.6618004570191556, -0.23490408373403376, 0.5190661049361811, -0.03143074979091932, -0.11241937064515797, 0.1257731196624856, 0.08805802745200282, -0.1563176516883163, 0.3463795016853568, -0.044602075614319794, 0.8564224417001306, -0.34652816060672165, 0.3765132317155449], "pivots": {"M": 137038782293146.31, "a": 0.8771929824561403, "omega_m": 0.272, "omega_b": 0.0456, "sigma8": 0.809, "h0": 0.704}}, "2500c": {"params": [0.12656051215719555, -0.03050866662392269, 0.10725429255827736, 0.7593881752986629, -0.27160211703510345, 0.42181074155295156, -0.020575075642635738, -0.1163991007298093, 0.28880298414213335, 0.10263452464907902, -0.34222932053193433, 0.3844570767051972, -0.1334171989405518, 0.8457199265161256, 0.0028417430312315424, 0.3827347978288253], "pivots": {"M": 68722326105291.2, "a": 0.8771929824561403, "omega_m": 0.272, "omega_b": 0.0456, "sigma8": 0.809, "h0": 0.704}}, "200m": {"params": [1.692410096240174, -0.040346034043160055, 0.9092242875122345, 0.2268328343963277, -0.2664240976376676, 0.5283845428748246, 0.015645163737334208, -0.11627375082296813, 0.11528658344781062, 0.05003254567973524, -0.09358485276497253, -0.04322554482713586, -0.06348838757477149, 0.6351347984085912, -0.40487997854959523, 0.3882554231750548], "pivots": {"M": 224397583007812.53, "a": 0.8771929824561403, "omega_m": 0.272, "omega_b": 0.0456, "sigma8": 0.809, "h0": 0.704}}}
@@ -30,10 +37,16 @@ __mm_fit_parameters = {"vir": {"200c": {"params": [32.716547549657776, 1.0036242
 }
 #end of fit parameters
 
+
+print('a5')
+
 __fit_parameter_names = ['A0','B0','C0','alpha_m','alpha_b','alpha_sigma','alpha_h','beta_m','beta_b','beta_sigma','beta_h','gamma_m','gamma_b','gamma_sigma','gamma_h','sigma']
 __fit_parameter_lite_names = ['A0','B0','C0','alpha_m','alpha_b','alpha_sigma','alpha_h','gamma_m','gamma_b','gamma_sigma','gamma_h','sigma']
 __fit_pivot_names = ['M','a','omega_m','omega_b','sigma8','h0']
 __deltas = ['200c','500c','2500c','vir','200m']
+
+
+print('a6')
 
 
 def panic(x):
@@ -82,6 +95,7 @@ def set_fit_parameters(table, **kw):
 
 
             
+print('a7')
 
 
 def fit_from_ragagnin2019_fit(table, pivots, use_lite_mc_fit=False, **kw):
@@ -131,6 +145,7 @@ def concentration_from_mc_relation(delta, M, a, omega_m, omega_b, sigma8, h0, us
                                          **kw)
 
 
+print('a8')
 
 def mass_from_mm_relation(delta_from, delta_to, M, a, omega_m, omega_b, sigma8, h0,  show_fit_parameters=False,  table=None, **kw):
     if show_fit_parameters:
@@ -171,6 +186,9 @@ def banach_caccioppoli(f,x0,accuracy=0.001):
         condition = np.all(error>accuracy)
         x1=x2
     return x2
+
+
+print('a9')
 
 def critical_overdensity(delta,  **args):
     if delta=='vir':
@@ -246,3 +264,4 @@ def split_kv(a,d, names,prekey=''):
             d[prekey+k]=float(v)
         except Exception as e:
             raise Exception('Value  must be floats, in "%s" found "%s"'%(arg, v))
+print('a11')
