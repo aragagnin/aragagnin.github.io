@@ -45,7 +45,7 @@ def on_change(ev):
     #
     # loop on form elements
     #
-    for e in document.select('[name]'):
+    for e in document.select('form [name]'):
         print(e)
         k = e.attrs['name']
         print(k)
