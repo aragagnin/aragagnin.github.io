@@ -50,6 +50,9 @@ tr td:first-child{
 tr td[colspan]{
     text-align:center;
 }
+td{
+    vertical-align: top;
+}
 table{
     border:1px solid gray;
     border-radius:3px;
