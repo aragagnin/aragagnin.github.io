@@ -86,7 +86,7 @@ def on_change(ev):
     document['c_delta1'].html = 'c<sub>%s</sub> = %.3f'%(form['delta1'], c_delta1)
 
     if (form['delta1']==form['delta2']):
-        raise Exception('To convert masses, &Delta;2 must be different than &Delta;2')
+        raise Exception('To convert masses, &Delta;1 must be different than &Delta;2')
     
     #
     # compute delta2 data
