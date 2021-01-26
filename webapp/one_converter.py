@@ -89,30 +89,7 @@ def on_change_try(ev):
     except Exception as e:
         document['error'].html = 'Form is not complete yet. %s'%(str(e))
 
-        
-
-    if destination[0]=='c':
-        f = hydro_mc.concentration_from_mc_relation
-        units = ''
-        result_name =  'c'+'<sub>'+( form_get('mix_form','delta_ignore'))+'</sub>'+':'
-
-        sanity = mc_sanity
-        format = '%.4f'
-        additional_fields = {'delta': form_get('mix_form','delta_ignore'), 'a':a}
-    elif destination[0]=='M':
-        f = hydro_mc.mass_from_mm_relation
-        sanity = mm_sanity
-        additional_fields = {'delta_from': form_get('mix_form','delta_ignore'), 'delta_to': destination[1:], 'a':a}
-        units = '[M<sub>&#x2299;</sub>]'
-        result_name =  'M'+'<sub>'+destination[1:]+'</sub>'+':'
-        format = '%.4e'
     
-    res = compute_mc_exc('mix_form', sanity, f, format, additional_fields = additional_fields, set_res_e = False)
-    document['mix_result'].html =  put_exponent(res)
-    document['output_label'].html = result_name
-    document['output_units'].html = units
-        
-
 for e in document.select('[name]'):
     e.bind("change", on_change_try)
 
