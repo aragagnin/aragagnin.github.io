@@ -42,6 +42,10 @@ def put_exponent(s):
 
 def on_change(ev):
     form = {}
+    document['a'].html = ''
+    document['c_delta1'].html = ''
+    document['M_delta2'].html = ''
+    document['c_delta2'].html = ''
     #
     # loop on form elements
     #
