@@ -42,7 +42,7 @@ input.long{
     width:2em;
 }
 .large{
-    width:50ch;
+    width:20ch;
 }
 tr td:first-child{
     text-align:right;
