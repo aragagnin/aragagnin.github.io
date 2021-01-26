@@ -84,10 +84,11 @@ def on_change(ev):
     print(c_delta2)
     
 def on_change_try(ev):
+    document['error'].html = ''
     try:
         on_change(ev)
     except Exception as e:
-        document['error'].html = 'Form is not complete yet. %s'%(str(e))
+        document['error'].html = 'Warning: %s'%(str(e))
 
     
 for e in document.select('[name]'):
