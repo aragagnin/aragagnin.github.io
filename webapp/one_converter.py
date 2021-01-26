@@ -58,8 +58,8 @@ def on_change(ev):
             try:
                 v = float(v_str)
             except:
-                raise Exception('Unable to convert "%s" value "%s" to float'%(name, value))
-            if value==0.:
+                raise Exception('Unable to convert "%s" value "%s" to float'%(name, v_str))
+            if v_str==0.:
                 raise Exception('The value of "%s" cannot be zero'%(name))
         else:
             v=v_str    
