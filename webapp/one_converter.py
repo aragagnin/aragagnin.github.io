@@ -51,6 +51,8 @@ def on_change(ev):
     document['c_delta1'].html = ''
     document['M_delta2'].html = ''
     document['c_delta2'].html = ''
+    document['arrow1'].html = ''
+    document['arrow2'].html = ''
     #
     # loop on form elements
     #
@@ -88,7 +90,8 @@ def on_change(ev):
     #
     c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
     print('c_Delta1',c_delta1)
-    document['c_delta1'].html = '&rarr;c<sub>%s</sub> = %.3f'%(form['delta1'], c_delta1)
+    document['arrow1'].html = '&rarr;'
+    document['c_delta1'].html = 'c<sub>%s</sub> = %.3f'%(form['delta1'], c_delta1)
 
     if (form['delta1']==form['delta2']):
         raise Exception('To convert masses, &Delta;1 must be different than &Delta;2')
@@ -101,6 +104,7 @@ def on_change(ev):
 
     print('Mdelta2',M_delta2)
     print('cdelta2',c_delta2)
+    document['arrow2'].html = '&rarr;'
     document['M_delta2'].html = '&rarr;M<sub>%s</sub> = %s M<sub><small>&#x2299;</small></sub>;'%(form['delta2'], put_exponent('%.3e'%M_delta2))
     document['c_delta2'].html = 'c<sub>%s</sub> = %.3f'%(form['delta2'], c_delta2)
 print('6')
