@@ -39,12 +39,9 @@ input.long{
     width:16ch;
 }
 
-tr td{
-    width:30ch;
-}
+
 tr td:first-child{
     text-align:right;
-    width:20ch;
 }
 tr td[colspan]{
     text-align:center;
