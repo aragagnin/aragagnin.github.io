@@ -46,14 +46,17 @@ def on_change(ev):
     # loop on form elements
     #
     for e in document.select('[name]'):
+        print(e)
         k = e.attrs['name']
+        print(k)
         v_str = e.value
+        print(v_str)
         #
-        # convert form element to either float or string (es. '200c')
+        # decide if we have to convert form element to either float or string (es. '200c')
         #
-        if not(('c' in value) or ('v' in value) or ('m' in value)):
+        if not(('c' in v_str) or ('v' in v_str) or ('m' in v_str)):
             try:
-                v = float(value)
+                v = float(v_str)
             except:
                 raise Exception('Unable to convert "%s" value "%s" to float'%(name, value))
             if value==0.:
@@ -88,7 +91,7 @@ def on_change_try(ev):
     try:
         on_change(ev)
     except Exception as e:
-        print(e)
+        print(e, str(e))
         document['error'].html = 'Warning: %s'%(str(e))
 
     
