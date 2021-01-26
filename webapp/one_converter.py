@@ -74,15 +74,15 @@ def on_change(ev):
     #
     # compute concentration of delta1
     #
-    c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma_8'], form['h0'])
+    c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
     print(c_delta1)
     document['c_delta1'] = '(c<sub>%s</sub> = %.3f)'%(form['delta1'], c_delta1)
     
     #
     # compute delta2 data
     #
-    M_delta2 = hydro_mc.mass_from_mm_relation(form['delta1'], form['delta2'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma_8'], form['h0'])
-    c_delta2 = hydro_mc.concentration_from_mc_relation(form['delta2'], M_delta2, form['a'], form['omega_m'], form['omega_b'], form['sigma_8'], form['h0'])
+    M_delta2 = hydro_mc.mass_from_mm_relation(form['delta1'], form['delta2'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
+    c_delta2 = hydro_mc.concentration_from_mc_relation(form['delta2'], M_delta2, form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
 
     print(M_delta2)
     print(c_delta2)
