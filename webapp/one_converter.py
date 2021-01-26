@@ -1,11 +1,17 @@
+print('1')
 import hydro_mc
+print('2')
 from browser import document, window
 #from browser import alert
 #from browser.widgets.dialog import InfoDialog
 #import traceback
 #storage = window.localStorage
+print('3')
 alert = window.alert
+print('4')
+
 from browser.local_storage import storage
+print('5')
 
 
 def store():
@@ -98,6 +104,7 @@ def on_change(ev):
     print('cdelta2',c_delta2)
     document['M_delta2'].html = 'M<sub>%s</sub> = %s M<sub><small>&#x2299;</small></sub>;'%(form['delta2'], put_exponent('%.3e'%M_delta2))
     document['c_delta2'].html = 'c<sub>%s</sub> = %.3f'%(form['delta2'], c_delta2)
+print('6')
     
 def on_change_try(ev):
     document['error'].html = ''
@@ -107,12 +114,22 @@ def on_change_try(ev):
         print(e, str(e))
         document['error'].html = 'Warning: %s'%(str(e))
 
+print('7')
+
     
 for e in document.select('[name]'):
     e.bind("change", on_change_try)
 
+print('8')
+
 _default_values = {"delta1_5":"500c","M_6":"3e14","delta2_7":"200m","omega_b_1":".04","z_4":"1.","h0_3":".704","sigma8_2":".8","omega_m_0":".301"}
 restore(_default_values)
 
+
+print('9')
+
 document['loading'].style.display='none'
+print('10')
+
 on_change_try(None)
+print('11')
