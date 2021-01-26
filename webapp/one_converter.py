@@ -88,6 +88,7 @@ def on_change_try(ev):
     try:
         on_change(ev)
     except Exception as e:
+        print(e)
         document['error'].html = 'Warning: %s'%(str(e))
 
     
