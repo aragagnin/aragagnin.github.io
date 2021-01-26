@@ -1,17 +1,16 @@
-print('1')
+print('one_converter.py loading')
 import hydro_mc
-print('2')
 from browser import document, window
 #from browser import alert
 #from browser.widgets.dialog import InfoDialog
 #import traceback
 #storage = window.localStorage
-print('3')
+
 alert = window.alert
-print('4')
+
 
 from browser.local_storage import storage
-print('5')
+
 
 
 def store():
@@ -114,22 +113,16 @@ def on_change_try(ev):
         print(e, str(e))
         document['error'].html = 'Warning: %s'%(str(e))
 
-print('7')
-
     
 for e in document.select('[name]'):
     e.bind("change", on_change_try)
 
-print('8')
 
 _default_values = {"delta1_5":"500c","M_6":"3e14","delta2_7":"200m","omega_b_1":".04","z_4":"1.","h0_3":".704","sigma8_2":".8","omega_m_0":".301"}
 restore(_default_values)
 
 
-print('9')
-
 document['loading'].style.display='none'
-print('10')
 
 on_change_try(None)
-print('11')
+print('one_converter.py loaded')

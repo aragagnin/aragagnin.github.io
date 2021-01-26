@@ -7,22 +7,22 @@ To use this software, just download the content of this repository.
 You can use it as an executable via `python hydro_mc.py --help` or as a library inside your python project by including `import hydro_mc`.
 
 """
-print('a1')
+
+print('hydro_mc loading..')
+
 __author__="Antonio Ragagnin (c) 2019"
 __version__="0.1"
 
-print('a2')
+
 
 
 import numpy as np
 
-print('a3')
 
 
 import sys
 import re
 
-print('a4')
 
 
 #start of fit parameters
@@ -38,7 +38,6 @@ __mm_fit_parameters = {"vir": {"200c": {"params": [32.716547549657776, 1.0036242
 #end of fit parameters
 
 
-print('a5')
 
 __fit_parameter_names = ['A0','B0','C0','alpha_m','alpha_b','alpha_sigma','alpha_h','beta_m','beta_b','beta_sigma','beta_h','gamma_m','gamma_b','gamma_sigma','gamma_h','sigma']
 __fit_parameter_lite_names = ['A0','B0','C0','alpha_m','alpha_b','alpha_sigma','alpha_h','gamma_m','gamma_b','gamma_sigma','gamma_h','sigma']
@@ -46,7 +45,6 @@ __fit_pivot_names = ['M','a','omega_m','omega_b','sigma8','h0']
 __deltas = ['200c','500c','2500c','vir','200m']
 
 
-print('a6')
 
 
 def panic(x):
@@ -95,8 +93,6 @@ def set_fit_parameters(table, **kw):
 
 
             
-print('a7')
-
 
 def fit_from_ragagnin2019_fit(table, pivots, use_lite_mc_fit=False, **kw):
     if not  use_lite_mc_fit:
@@ -145,7 +141,6 @@ def concentration_from_mc_relation(delta, M, a, omega_m, omega_b, sigma8, h0, us
                                          **kw)
 
 
-print('a8')
 
 def mass_from_mm_relation(delta_from, delta_to, M, a, omega_m, omega_b, sigma8, h0,  show_fit_parameters=False,  table=None, **kw):
     if show_fit_parameters:
@@ -264,4 +259,7 @@ def split_kv(a,d, names,prekey=''):
             d[prekey+k]=float(v)
         except Exception as e:
             raise Exception('Value  must be floats, in "%s" found "%s"'%(arg, v))
-print('a11')
+
+print('hydro_mc loaded..')
+
+

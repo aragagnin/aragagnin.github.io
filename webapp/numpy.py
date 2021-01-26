@@ -2,12 +2,10 @@
 # not the best numpy implementation 
 #
 
-print('b1')
+print('numpy loading...')
 
 from math import *
 
-
-print('b2')
 
 def abs(x):
     if x>0:
@@ -21,4 +19,4 @@ def all(x):
 def array(a):
     return a
 
-print('b5')
+print('numpy loaded')
