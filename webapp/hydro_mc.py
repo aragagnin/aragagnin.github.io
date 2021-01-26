@@ -136,7 +136,11 @@ def mass_from_mm_relation(delta_from, delta_to, M, a, omega_m, omega_b, sigma8, 
     if show_fit_parameters:
                     print_fit_params_and_pivots(__mm_fit_parameters[delta_from][delta_to])
     if table is None:
+        print(_mm_fit_parameters.keys())
+        print(_mm_fit_parameters[delta_from].keys())
+        
         table = __mm_fit_parameters[delta_from][delta_to]
+        print(table)
     return fit_from_ragagnin2019_fit( table['params'], table['pivots'],
                                          M=M,a=a,omega_m=omega_m, omega_b=omega_b, sigma8=sigma8, h0=h0,
                                          **kw)
