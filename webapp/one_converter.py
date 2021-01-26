@@ -96,7 +96,7 @@ def on_change(ev):
 
     print('Mdelta2',M_delta2)
     print('cdelta2',c_delta2)
-    document['M_delta2'].html = 'M<sub>%s</sub> = %s;'%(form['delta2'], put_exponent('%.3e'%M_delta2))
+    document['M_delta2'].html = 'M<sub>%s</sub> = %s [M<sub>&#x2299;</sub>];'%(form['delta2'], put_exponent('%.3e'%M_delta2))
     document['c_delta2'].html = 'c<sub>%s</sub> = %.3f'%(form['delta2'], c_delta2)
     
 def on_change_try(ev):
