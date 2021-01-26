@@ -46,7 +46,10 @@ tr td:first-child{
     text-align:right;
     width:20ch;
 }
-table{
+tr td[colspan]{
+    text-align:center;
+}
+OAtable{
     border:1px solid gray;
     border-radius:3px;
     padding:1em;
