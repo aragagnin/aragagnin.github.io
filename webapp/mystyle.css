@@ -38,7 +38,9 @@ input, select{
 input.long{
     width:16ch;
 }
-
+.arrow{
+    width:2em;
+}
 .large{
     width:50ch;
 }
