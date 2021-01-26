@@ -77,6 +77,9 @@ def on_change(ev):
     c_delta1 = hydro_mc.concentration_from_mc_relation(form['delta1'], form['M'], form['a'], form['omega_m'], form['omega_b'], form['sigma8'], form['h0'])
     print(c_delta1)
     document['c_delta1'].html = '(c<sub>%s</sub> = %.3f)'%(form['delta1'], c_delta1)
+
+    if (form['delta1']==form['delta2']):
+        raise Exception('&Delta;2 must be different than &Delta;2')
     
     #
     # compute delta2 data
