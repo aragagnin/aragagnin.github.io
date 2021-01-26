@@ -86,6 +86,8 @@ def on_change(ev):
 
     print(M_delta2)
     print(c_delta2)
+    document['M_delta2'] = '(M<sub>%s</sub> = %s)'%(form['delta2'], put_exponent('%.3e'%M_delta2))
+    document['c_delta1'] = '(c<sub>%s</sub> = %.3f)'%(form['delta2'], c_delta2)
     
 def on_change_try(ev):
     document['error'].html = ''
