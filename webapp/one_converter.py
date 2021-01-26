@@ -64,11 +64,15 @@ def on_change(ev):
             v=v_str    
 
         form[k] = v
-    
+        #
+        # write scale factor eventually
+        #
+        if k=='z':
+            form['a'] = 1./(1.+form['z'])
+            document['a'].html = '(a = %.3f)'%(form['a'])
+
     print(form)
     
-    form['a'] = 1./(1.+form['z'])
-    document['a'].html = '(%.3f)'%(form['a'])
 
     #
     # compute concentration of delta1
