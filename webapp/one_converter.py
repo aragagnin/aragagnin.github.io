@@ -111,4 +111,4 @@ for e in document.select('[name]'):
 restore({})
 
 document['loading'].style.display='none'
-
+on_change_try(None)
