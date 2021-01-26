@@ -39,7 +39,9 @@ input.long{
     width:16ch;
 }
 
-
+.large{
+    width:16ch;
+}
 tr td:first-child{
     text-align:right;
 }
