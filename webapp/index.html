@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Halo masses and concentrations from Magnetiucm Box1a hydrodynamic simulations</title>
     <meta name="description" content="Obtain sparsity, mass and concentration from mass, scale factor or redshift, and cosmological parameter Omega_m, Omega_b, sigma8 and h0, for overdensityes 200c, 500c,  2500c, vir, 2005c">
+    <title>Halo masses and concentrations from Magnetiucm Box1a hydrodynamic simulations</title>
     <meta name="author" content="Antonio Ragagnin">
     <script type="text/javascript"	  src="brython.min.js">        </script>
     <script type="text/javascript"          src="brython_stdlib.min.js">        </script>
@@ -55,9 +55,9 @@
 	      </select>
 	  </td></tr>
 	  <tr><td>       M<sub>&Delta;</sub>:</td><td>  <input name="M" class="long">       [M<sub>&#x2299;</sub>]</td></tr>
-	  <tr><td colspan=2>	      <span id="c_delta1"></span>
+	  <tr><td colspan=2>&#10240;	      <span id="c_delta1"></span>
 	      </tr></td>
-	  <tr><td>       Output:</td><td>
+	  <tr><td>       </td><td>
 	      <select name="delta2">
 		<option value="vir">vir</option>
 		<option value="200c">200c</option>
@@ -71,14 +71,15 @@
 	  <tr><td colspan=2 style="text-align:center">	 &darr; </td></tr>
 	  <tr class="space"></tr>
 	  <tr>
-	    <td colspan=2>
+	    <td colspan=2>&#10240;
 	      <span id="M_delta2"> </span>
 	      <span id="c_delta2"> </span>
 	  </td></tr>
+	  <tr><td colspan=2>    <span id="error"></span></td></td>
+
 	</table>
       </form>
     </div>
-    <span id="error"></span>
 
 </body>
 </html>
