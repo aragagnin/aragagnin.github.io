@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>c2pap web portal batch script for hydrodynamic simulations</title>
+</head>
+<body>
+    <main class="container">
+        <h1>c2pap web portal python batch script</h1>
+        
+        <p>In this paget I  (Antonio Ragagnin) present you  batch jobs for <a href="http://c2papcosmosim.uc.lrz.de/">c2papcosmosim.uc.lrz.de</a> with the script <a href="/c2pap_batch.py">c2pap_batch.py</a>.  </p>
+        <p>
+            Given a list of clusters previously extracted from the c2pap web portal (the output file name is <code>dataset.csv</code>), the script <code>c2pap_batch.py</code>
+            automatize the process of sending the same jobs parameter to all those haloes.</p>
+            
+            <p>The script takes the parameter <code>-s {Service name}</code> where the service name can be <code>SMAC, SimCut, PHOX, query</code>,
+                the path of the dataset file name  <code>-f {daraset.csv}</code>, the job parameters must be set with <code>-p</code> and must
+                consist of the value displayes in the web portal.
+            </p>
+            
+            <p>
+                Below a list of all parameters. <b>Note: they are case sensitive.</b>
+                <pre>
+                    Form parameters.
+                    SimCut:
+                    IMG_Z_SIZE
+                    r500factor
+                    
+                    SMAC:
+                    content
+                    IMG_SIZE
+                    IMG_Z_SIZE
+                    PROJECT
+                    r500factor
+                    
+                    PHOX:
+                    mode
+                    instrument (-1 for generic)
+                    instrument_a (only if generic)
+                    instrument_fov (only if generic)
+                    t_obs_input
+                    img_z_size
+                    simulate
+                </pre>
+            </p>
+            <p>
+                For instance the following will run a SMAC job over all objects in the dataset.csv:
+                <code>python c2pap_batch.py -f dataset.csv -s SMAC -p content="bolometric x-ray luminosity" IMG_SIZE=512 IMG_Z_SIZE=5000 PROJECT='along z, xy plane' r500factor=2.0 -u <YOUR USERNAME> </code>
+                    </p>
+                    <p>
+                    To avoid running duplicate jobs, use the flags <code>--existing-jobs --cache-jobs cachefile.pickle</code> to make the script check for existing jobs with identical parameters.
+                </p>  
+                <p>
+                    For any question ask me (Antonio Ragagnin) using the address antonio.ragagnin <i>(at)</i> inaf.it or a more updated one on my home page <a href="https://aragagnin.github.io/">aragagnin.github.io.</a>
+</p>
+                </main>  
+            
+        </body>
+        </html>
+        
