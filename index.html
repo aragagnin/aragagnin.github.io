@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Antonio Ragagnin (Home Page)</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
         <meta name="description" content="Personal homepage of Antonio Ragagnin" />
         <meta name="author" content="Antonio Ragagnin" />
         <style>
-            * {font-family: Verdana, Calibri, Arial, Helvetica, sans-serif}
             h2 {border-left: 0.15em solid; padding: 0.5em;   color: #396d88}
             p {color: #1b465d; margin-left: 0.5em}
             section a {color: #001ca7}
@@ -17,24 +17,25 @@
               .divide {display:block;  clear:both}
             }
             body {margin:0}
+            header {padding:1em!important}
             header,section {padding: 0.7em}
             header {background-color: #396d88;  color: white; box-shadow: 0em 0em 1em 0.2em #00000066}
             header p {color: white}
-            h1 {margin-top:0}
+            main, h1 {margin:0!important; padding:0!important;}
             header a,footer a {color: #e4ffe1;}
-            footer {background-color: black; color: white; padding: 1em}
+            
         </style>
     </head>
     <body>
         <header>
-        <img alt="Antonio Ragagnin photo" src="antonio_ragagnin.png" style="float: left; margin-right: 1em; border-radius: 0.5em;" />
+        <img alt="Antonio Ragagnin photo" src="https://aragagnin.github.io//antonio_ragagnin.png" style="float: left; margin-right: 1em; border-radius: 0.5em; height:9em" />
         <h1>Antonio Ragagnin<sup><small><small>1,2</small></small></sup></h1>
         <span class="divide"></span>
          <small><sup>1</sup><i>Dipartimento di Fisica e Astronomia "Augusto Righi", Alma Mater Studiorum Università di Bologna, via Gobetti 93/2, I-40129
              Bologna, Italy</i><br/></small>
         <small><sup>2</sup><i>INAF - Osservatorio Astronomico, via Tiepolo 11, 34131 Trieste, Italy</i><br /></small>
        <!-- <small><sup>3</sup><i>IFPU - Institute for Fundamental Physics of the Universe, Via Beirut 2, 34014 Trieste, Italy</i><br /></small> -->
-        <small><sup> &#x2605;</sup><code>antonio.ragagnin@unibo.it</code></small>
+        <small><sup> &#x2605;</sup><i>antonio.ragagnin@unibo.it</i></small>
         <br style="clear: both;" />
         <p>
             I am an astrophysicist and I work as post-doc at the <a href="https://fisica-astronomia.unibo.it/it/index.html">University of Bologna</a>.
@@ -49,11 +50,13 @@
                 <a href="https://www.darkium.org/">Darkium</a></p>
             
          </header>
-        <section>
+         <main class="container">
+             <section>
         <h2>Resources</h2>
         <p> My <a href="Antonio_Ragagnin_CV.pdf">Curriculum Vitae</a> updated at January 2023, my <a href="http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=Ragagnin,+Antonio">SAO/NASA ADS Complete list of pubblications</a>, and my ORCiD <a href="https://orcid.org/0000-0002-8106-2742">0000-0002-8106-2742</a> <p>
             <a href="http://c2papcosmosim.uc.lrz.de">C<sup>2</sup>PAP Web Portal</a>: a web portal for inspecting and post processing <a href="https://www.magneticum.org">Magneticum</a>  simulations. Check
-            <a href="https://raw.githubusercontent.com/aragagnin/g3read/master/c2pap_batch.py">c2pap_batch.py</a> to send batch of jobs </p>
+            <a href="/c2pap_batch.py">c2pap_batch.py</a> to send batch of jobs (and its user manual 
+                 <a href="/c2pap_batch.html">here</a>) </p>
         <p>
             <a href="https://raw.githubusercontent.com/aragagnin/aragagnin.github.io/master/print_affinity.c">print_affinity.c</a>: helps affinity set ups in HPC systems by printing hostname and CPU index for each MPI and OpenMP thread</p>
         <p>
@@ -153,6 +156,7 @@
         <!-- <P>%&g (%&Y) <A href=%"u">%&T</A></P>\n -->
         <!--  <P><A href=%"u">%&T</A> (%&Y)  <br/>%&g  </P>\n-->
             </section>
+         </main>
      <!--   
         <footer>
             <b><i>Acknowledgements:</i>
