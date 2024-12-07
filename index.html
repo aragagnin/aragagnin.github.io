@@ -241,11 +241,305 @@ While investigating this problem, I found that this tension is closely linked to
 It features a user-friendly graphical interface to navigate large simulated volumes, 
             erform complex queries on galaxy cluster catalogs,
             and execute specific post-processing tasks
-            (see <a href="https://ui.adsabs.harvard.edu/abs/2017A%26C....20...52R/abstract">Ragagnin et al. 2017</a>).  
-Press coverage: <a href="https://www.sciencedaily.com/releases/2017/06/170620114101.htm">Science Daily</a>,  
+            (see <a href="https://ui.adsabs.harvard.edu/abs/2017A%26C....20...52R/abstract">Ragagnin et al. 2017</a>).  <br/>  
+Additionally, batch job submissions to Magneticum simulations are supported via the
+            <b><a href="https://aragagnin.github.io/c2pap_batch.html">c2pap_batch.py</a></b> script.  <br/>
+            Press coverage: <a href="https://www.sciencedaily.com/releases/2017/06/170620114101.htm">Science Daily</a>,  
 <a href="https://www.gauss-centre.eu/results/astrophysics/magneticum-pathfinder-a-web-interface-to-access-simulation-data">Gauss Centre</a>.  
-<br/>  
-Additionally, batch job submissions to Magneticum simulations are supported via the <b><a href="https://aragagnin.github.io/c2pap_batch.html">c2pap_batch.py</a></b> script.  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+    <title>Antonio Ragagnin Home Page</title>
+        <meta property="og:image" content="https://aragagnin.github.io/antonio_ragagnin.png" />
+    <meta name="description" content="Personal homepage of Antonio Ragagnin" />
+    <meta name="author" content="Antonio Ragagnin" />    
+    <style>
+      * {
+        font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        text-rendering: optimizeLegibility;
+      }
+
+      body,h1,h3 {
+        margin: 0
+      }
+
+      header {
+        padding: 1em !important;
+        margin-bottom: 1em;
+      }
+
+      header,
+      section {
+        padding: 0.7em
+      }
+
+      header {
+        background-color: #396d88;
+        color: white;
+        box-shadow: 0em 0em 1em 0.2em #00000066
+      }
+
+      header p {
+        color: white
+      }
+
+      header a,
+      footer a {
+        color: #e4ffe1;
+      }
+
+      ul {
+        margin: 0
+      }
+
+      main {
+        display: grid;
+        gap: 16px;
+        max-width: 1200px;
+        padding: 1em;
+      }
+
+      /* Large monitors: 3 columns */
+      @media (min-width: 1200px) {
+        main {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Medium screens: 2 columns */
+      @media (min-width: 768px) and (max-width: 1199px) {
+        main {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Small screens: 1 column */
+      @media (max-width: 767px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      article {
+        background-color: white;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0.5em;
+      }
+
+      article .header {
+        display: flex;
+        align-items: center;
+        /*margin-bottom: 8px;*/
+      }
+
+      article .header img,
+      article .description img {
+        height: 12em;
+        float: left;
+        padding-top: 0.2em;
+        margin-left: 1em: border-radius: 50%;
+        margin-right: 0.5em;
+        object-fit: cover;
+      }
+
+      h3 {
+        text-align: center;
+         background-color: #fffff1; 
+      
+      }
+
+      article .description {
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <body>
+      <header>
+        <img alt="Antonio Ragagnin photo" src="antonio_ragagnin.png" style="float: left; margin-right: 1em; border-radius: 0.5em; height:9em">
+        <h1>Antonio Ragagnin <sup>
+            <small>
+              <small>1,2,3</small>
+            </small>
+          </sup>
+        </h1>
+        <span class="divide"></span>
+        <small>
+          <sup>1</sup>
+          <i> INAF-Osservatorio di Astrofisica e Scienza dello Spazio di Bologna, Via Piero Gobetti 93/3, 40129 Bologna, Italy </i>
+          <br />
+        </small>
+        <small>
+          <sup>2</sup>
+          <i> Dipartimento di Fisica e Astronomia "Augusto Righi" - Alma Mater Studiorum Universit\`a di Bologna, via Piero Gobetti 93/2, 40129 Bologna, Italy </i>
+          <br />
+        </small>
+        <small>
+          <sup>3</sup>
+          <i> ICSC - Centro Nazionale di Ricerca in High Performance Computing, Big Data e Quantum Computing, Via Magnanelli 2, Bologna, Italy </i>
+          <br />
+        </small>
+        <small>
+          <sup> ★</sup>
+          <i>antonio.ragagnin@inaf.it</i>
+        </small>
+        <br style="clear: both;">
+        <p> I am a fixed-term research staff member at <a href="https://www.oas.inaf.it/it/">INAF-OAS</a>.
+          I specialize in cosmological hydrodynamic simulations, zoom-in simulations of galaxy clusters,
+          high-performance computing (HPC), GPUs, self-interacting dark matter,
+          and multi-wavelength mock observations (X-ray, SZ, optical, as well as derived weak and strong lensing signals).
+        </p>
+        <p>
+          <strong>Collaborations:</strong>
+          <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid">Euclid</a>, <a href="http://www.magneticum.org/">Magneticum</a>, OpenGadget3, HydroSims, <a href="https://www.darkium.org/">Darkium</a>
+        </p>
+      </header>
+      <main>
+        <article>
+          <!--
+                <div class="header"><a href="https://aragagnin.github.io/Antonio_Ragagnin_CV.pdf"><img src="europasslogo.jpg" alt="europass"></a><div class="title" style="padding-left:6em;">Know me</div></div>
+                -->
+          <div class="description">
+            <h3>My track record</h3>
+            <img src="confzoom.png">
+            <ul>
+              <li><h4>Download my <a href="https://aragagnin.github.io/Antonio_Ragagnin_CV.pdf">Curriculum Vitae</a> (updated at September 2024) </h4></li>
+              <li><h4>Check my <a href="http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=Ragagnin,+Antonio">SAO/NASA ADS</a> complete list of pubblications </h4></li>
+              <li><h4>Check my ORCiD <a href="https://orcid.org/0000-0002-8106-2742">0000-0002-8106-2742</a></h4>         </li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h3>Impact of baryon physics in galaxy-galaxy strong lensing (GGSL) tension </h3>
+          <div class="description">
+            <img src="ragagnin22.png"> 
+            Meneghetti et al. (2020) highlighted a tension between ΛCDM simulations and GGSL observations.  
+In <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...665A..16R/abstract">Ragagnin et al. (2022a)</a>,  
+we tested the well-motivated hypothesis that AGN physics could resolve this issue and we concluded that it can not.
+            <b>No current ΛCDM simulation reproduces the observed cores of galaxy clusters.</b>  
+While investigating this problem, I found that this tension is closely linked to the fact that most hydrodynamic  
+<b>simulations tend to overestimate BCG masses</b>.
+          </div>
+        </article>
+        <article>
+          <h3>What characterise X-ray faint galaxy clusters?</h3>
+          <div class="description">
+            <img src="Xrayfaint.png" style="float:none">
+            <br /> X-ray observations may be biased toward peaked and centrally concentrated gas distributions, 
+            potentially missing a population of X-ray faint objects. 
+            In <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a>,  
+<b>I found that clusters that are X-ray faint are gas-poor because they are old and relaxed, thus
+  allowing sufficient time for the gas to be depleted.</b>
+          </div>
+        </article>
+        <article>
+          <h3>Self-interacting dark matter (SIDM) in galaxy clusters</h3>
+          <div>
+            <div class="description">
+              <img src="g3read.png"> 
+              This promising particle-physics-motivated dark matter model can strongly influence the evolution of halos.
+              In <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...687A.270R/abstract">Ragagnin et al. (2024)</a>,
+              I present one of the first simulation suites (based on Dianoga ICs; see Rasia et al. 2014)
+              of galaxy clusters incorporating full baryon physics and SIDM.
+              <b>We found that SIDM can significantly affect the abundance of satellites.</b>
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>A modular, GPU-friendly code for n-body simulations: hotwheels</h3>
+          <div class="description">
+            <img src="domain_lines_dim3.png" style="width:10em">
+            I am developing a flexible and modular new implementation of a Gadget-like code
+            (temporary project name: <b>HotWheels</b>),
+            incorporating over a decade of experience working with HPC.
+            It is designed to leverage <b>multicore and GPU</b> architectures, with a strong emphasis on
+            <b>modularity and miniapps</b>, which are essential for collaboration with HPC facilities and GPU vendors.
+            Follow the progress on Mastodon: <a href="https://astrodon.social/@HotWheelsSims">astrodon.social/@HotWheelsSims</a>.
+</div>
+        </article>
+        <article>
+          <h3>Mock multi-wave length observations for Euclid</h3>
+          <div class="description">
+            <img src="euclidcyl.png" style="float:left; width:4em; height:auto; padding-right:0.5em">
+            I am the lead author of a paper for the 
+            <b><a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Euclid Collaboration: Ragagnin et al. (2025)</a></b>.  
+            Within this collaborative effort between observational and simulation teams, I produced mock observations from various multi-wavelength data sources  
+            <b>(X-ray, SZ, optical, and inferred weak lensing signals)</b>.  
+            The paper presents a Euclid-tailored covariance matrix for realistic mock observations across these wavelengths and explores the impact of projection effects,  
+            which will assist <b>future cosmology studies based on multi-wavelength observations</b>.
+                      </div>
+        </article>
+        <article>
+          <h3>A web portal for cosmological hydrodynamic simulations</h3>
+          <div class="description">
+            <a href="http://c2papcosmosim.uc.lrz.de/">
+              <img src="cosmosimprview.png" style="width:5em;">
+            </a> The <a href="http://c2papcosmosim.uc.lrz.de/">c2papcosmosim.uc.lrz.de</a> web portal to  
+allows to explore Magneticum simulation results and submit mock-observation jobs through
+            a dedicated computing queue.  
+It features a user-friendly graphical interface to navigate large simulated volumes, 
+            perform complex queries on galaxy cluster catalogs,
+            and execute specific post-processing tasks
+            (see <a href="https://ui.adsabs.harvard.edu/abs/2017A%26C....20...52R/abstract">Ragagnin et al. 2017</a>).<br/>  <br/>  
+See            <b><a href="https://aragagnin.github.io/c2pap_batch.html">c2pap_batch.py</a></b> for sending batch script.  <br/><br/>
+            Press coverage: <a href="https://www.sciencedaily.com/releases/2017/06/170620114101.htm">Science Daily</a>,  
+<a href="https://www.gauss-centre.eu/results/astrophysics/magneticum-pathfinder-a-web-interface-to-access-simulation-data">Gauss Centre</a>.  
+
+          </div>
+        </article>
+        <article>
+          <h3>g3read library</h3>
+          <div class="description">
+            <a href="https://github.com/aragagnin/g3read/">
+              <img src="g3readmap.png">
+            </a> 
+            The <a href="https://github.com/aragagnin/g3read/">github.com/aragagnin/g3read</a>
+            repository contains a collection of <b>Python tools for reading and post-processing Gadget2/3 snapshots</b>,
+            particularly for Magneticum outputs (including the INFO block), and efficiently handling FoF/SubFind catalogs.  
+This repository includes core routines (g3read.py) that combine elements of Pynbody and ported legacy (Klaus') IDL routines.
+The library utilizes the GadgetFile class from Pynbody. If available, g3read will also leverage Numba for optimized performance.
+
+          </div>
+        </article>
+        <article>
+          <h3>hydro_mc library</h3>
+          <div class="description">
+            <img style="width:auto; height:14em; margin-right:0.5em; float:none;" src="hydromc.png"><br/>
+         The package <b>hydro_mc</b> implements the
+            <a href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.3313R/abstract">Ragagnin et al. (2020)</a>  
+<b>conversion of mass, concentration, and sparsity parameters</b>
+            between virial and overdensities of Δ = 2500, 500, and 200 (both mean and critical).  
+See the <a href="https://c2papcosmosim.uc.lrz.de/static/hydro_mc/webapp/index.html">hydro_mc web app</a>
+            or the repo
+<a href="https://github.com/aragagnin/hydro_mc">github.com/aragagnin/hydro_mc</a>.
+
+          </div>
+          </div>
+        </article>
+        <article>
+          <h3>GPU porting of gravity and hydrodynamics</h3>
+          <div class="description">
+            <img src="gpuspeedup.png">
+I ported the integration of various Gadget physics integrators 
+            (<b>gravity, SPH density, SPH hydrodynamics, and thermal conduction</b>) on GPUs.  
+This was a significant collaborative effort, involving multiple hackathons and
+            long-term partnerships with CSCS, PGI, and NVIDIA (see my CV).  
+For further details, see my paper: <a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200310850R/abstract">Ragagnin et al. (2020)</a>.
+          </div>
+        </article>
+      </main>
+    </body>
+</html>
+
           </div>
         </article>
         <article>
