@@ -50,12 +50,24 @@
       main {
         display: grid;
         gap: 16px;
-        max-width: 1200px;
         padding: 1em;
       }
-
+      
       /* Large monitors: 3 columns */
-      @media (min-width: 1200px) {
+      @media (min-width: 1900px) {
+        main {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      }
+      /* Large monitors: 3 columns */
+      @media (min-width: 1600px) and (max-width: 1899px) {
+        main {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      
+      /* Large monitors: 3 columns */
+      @media (min-width: 1200px) and (max-width: 1599px) {
         main {
           grid-template-columns: repeat(3, 1fr);
         }
@@ -186,7 +198,7 @@ While investigating this problem, I found that this tension is closely linked to
           <h3>What characterises X-ray faint galaxy clusters?</h3>
           <div class="description">
             <img src="Xrayfaint.png" style="float:none">
-            <br /> X-ray observations may be biased toward peaked and centrally concentrated gas distributions, 
+            <br /> It is well known that X-ray observations may be biased toward peaked and centrally concentrated gas distributions, 
             potentially missing a population of X-ray faint objects. 
             In <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a>,  
 <b>I found that clusters that are X-ray faint are gas-poor because they are old and relaxed, thus
