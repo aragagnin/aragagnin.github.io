@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./pico.min.css">
+      
+    <title>c2pap web portal batch script for hydrodynamic simulations</title>
+</head>
+<body>
+    <main class="container">
+        <h1>c2pap web portal python batch script</h1>
+        <p>
+	  In this paget I  (Antonio Ragagnin) present you  batch jobs for
+	  <a href="http://c2papcosmosim.uc.lrz.de/">c2papcosmosim.uc.lrz.de</a>
+	  with the script <a href="./c2pap_batch.py">c2pap_batch.py</a>.
+	</p>
+	<h1> Install </h1>
+	Download the script from this website:
+	<pre>
+wget https://aragagnin.github.io/c2pap_batch/c2pap_batch.py
+pip install mechanize
+pip install pyyaml
+	</pre>
+	<h1> Test it </h1>
+	Download a sample dataset of haloes obtained from the webportal, and execute some services on it:
+	<pre>
+wget https://aragagnin.github.io/c2pap_batch/dataset.csv
+python c2pap_batch.py -f dataset.csv -s SMAC -p content="bolometric x-ray luminosity" IMG_SIZE=512 IMG_Z_SIZE=5000 \
+PROJECT='along z, xy plane' r500factor=2.0 -u 'your user'
+# add -x 'your pass' to avoid typing it
+	</pre>
+	<h1> Usage</h1>
+	
+        <p>
+          Given a list of clusters previously extracted from the c2pap web portal (the output file name is <code>dataset.csv</code>), the script <code>c2pap_batch.py</code>
+          automatize the process of sending the same jobs parameter to all those haloes.</p>
+        
+        <p>The script takes the parameter <code>-s {Service name}</code> where the service name can be <code>SMAC, SimCut, PHOX, query</code>,
+          the path of the dataset file name  <code>-f {daraset.csv}</code>, the job parameters must be set with <code>-p</code> and must
+          consist of the value displayes in the web portal.
+        </p>
+	
+            <p>
+                Below a list of all parameters. <b>Note: they are case sensitive.</b>
+                <pre>
+Form parameters.
+SimCut:
+IMG_Z_SIZE
+r500factor
+
+SMAC:
+content
+IMG_SIZE
+IMG_Z_SIZE
+PROJECT
+r500factor
+
+PHOX:
+mode
+instrument (-1 for generic)
+instrument_a (only if generic)
+instrument_fov (only if generic)
+t_obs_input
+img_z_size
+simulate
+                </pre>
+            </p>
+	    <h1> Troubleshooting </h1>
+        <p>
+        <p>
+          To avoid running duplicate jobs, use the flags
+	  <code>--existing-jobs --cache-jobs cachefile.pickle</code>
+	  to make the script check for existing jobs with identical parameters.
+        </p>  
+        <p>
+          In case you get an error
+	  <code>
+	    urllib.error.URLError: urlopen error [SSL: CERTIFICATE_VERIFY_FAILED]
+	    certificate verify failed: certificate has expired (_ssl.c:1010)>
+	  </code>,
+	  then run the python script with the option <code>--weak-ssl</code> to ignore SSL verificaiton.
+        </p>  
+        <p>
+          For any question ask me (Antonio Ragagnin)
+	  using the address antonio.ragagni<i>(at)</i> inaf.it
+	  or a more updated one on my home page <a href="https://aragagnin.github.io/c2pap_batch">aragagnin.github.io.</a>
+	</p>
+	<h1>Credits and citations</h1>
+	Likewise using the webportal, publications using this script should cite
+	<a href="https://ui.adsabs.harvard.edu/abs/2017A%26C....20...52R/abstract">Ragagnin et al.</a> (2017)
+	as well as the other citations provided in the web portal credit page:
+	<a href="https://c2papcosmosim.uc.lrz.de/credits">https://c2papcosmosim.uc.lrz.de/credits</a>
+	
+	  
+    </main>  
+
+    
+</body>
+</html>
+        

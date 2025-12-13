@@ -1,5 +1,5 @@
 """
-c2pap-web-portal batch jobs, by Antonio Ragagnin (ragagnin@lrz.de), 2018 - 2022.
+c2pap-web-portal batch jobs, by Antonio Ragagnin (ragagnin@lrz.de), 2018 - 2026.
 
 many thanks to Leonard Bauer for his beta testing.
 
@@ -38,7 +38,7 @@ import sys
 
 
 BASE = "https://c2papcosmosim.uc.lrz.de" 
-__version__= "1.1 [24 May 2022]"
+__version__= "1.2 [13 Dec 2025]"
 __author__= "Antonio Ragagnin"
 globy = {}
 
@@ -456,7 +456,7 @@ def main():
     log ("===================================================")
     log ("=                                                 =")
     log ("= c2pap-web-portal batch jobs                     =")
-    log ("= By Antonio Ragagnin, 2018 - 2022.               =")
+    log ("= By Antonio Ragagnin, 2018 - 2025                =")
     log ("= questions: antonio.ragagin@inaf.it              =")
     log ("=                                                 =")
     log ("===================================================")
@@ -533,7 +533,7 @@ def main():
     if args.weak_ssl:
         import ssl
         ssl._create_default_https_context = ssl._create_unverified_context
-
+        ssl.create_default_context = ssl._create_unverified_context
     log ("Initializing browser...")
     br =MyBrowser()
 
@@ -569,11 +569,11 @@ def main():
 
     if args.service=="SMAC":
         import yaml
-        service_data = yaml.load(br.open(BASE+"/static/smac.yml"))
+        service_data = yaml.load(br.open(BASE+"/static/smac.yml"), Loader=yaml.SafeLoader)
 
     if args.service=="PHOX":
         import yaml
-        service_data = yaml.load(br.open(BASE+"/static/phox.yml"))
+        service_data = yaml.load(br.open(BASE+"/static/phox.yml"), Loader=yaml.SafeLoader)
 
 
 
