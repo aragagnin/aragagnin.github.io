@@ -1,0 +1,51 @@
+# Exploiting space-filling curve ordering to drastically speedup Gadget3 hydrodynamic cosmological simulations
+
+<embed
+  src="ragagnin16_slides.pdf"
+  type="application/pdf"
+  width="100%"
+  height="1000"
+  title="Embedded PDF Viewer"
+/>
+
+During my PhD in 2015, Gadget3 is one of the most widely used codes for cosmological hydrodynamical simulations — the kind that models how dark matter clumps, gas collapses, and galaxies form across billions of years. As our simulations grew larger, the code was not scaling the way we needed it to. So we profiled it, and what we found was surprising: the code was spending more time *finding* particles than actually computing any physics.
+
+| Component | Time (s) |
+|---|---|
+| Neighbour Search | 263,000 |
+| Physics computation | 155,000 |
+| MPI communication | 72,000 |
+
+To compute anything physical for a particle — local density, hydrodynamic forces, star formation rate — Gadget3 first finds all neighbouring particles within a searching radius *h* by walking an octree. With millions of active particles, each triggering its own independent tree walk from scratch every timestep, this tree walk was consuming nearly **twice** as much CPU time as the actual physics. Every walk was starting over from scratch, even for particles that shared almost identical neighbourhoods. That was the bottleneck, and that was what we set out to fix.
+
+## The Insight
+
+Gadget3 orders its particles using a **Hilbert space-filling curve** for domain decomposition. The Hilbert curve has a key property: points nearby along the curve are also nearby in 3D space. So particles stored consecutively in memory are physically close — and physically close particles share most of their neighbours.
+
+The fix, which I called **Neighbour Recycling**: instead of one tree walk per particle, group nearby particles together and perform a single tree walk for the whole group, over a slightly larger radius *R* + max(*h*ᵢ). Then filter the resulting candidate list individually for each particle. Fewer walks, same correct answer.
+
+To handle Gadget3's wildly varying densities, the grouping radius is made adaptive: *R* = *f* · ⟨*h*⟩, scaling with the local searching radius (itself tied to local density). The optimal constant *f* ≈ 0.5 was found numerically, and corresponds to each tree walk searching for roughly 3× as many candidate neighbours as the true count — a cheap overhead compared to the walk savings.
+
+## Results
+
+Tested on the Magneticum **box5hr** simulation (18 Mpc/h, 2·81³ particles, 8 MPI processes):
+
+<table>
+<th> <td> Module </td> <td> Speedup </td> </th>
+<tr> <td> Density </td> <td> <b>1.64x</b> </td> </tr>
+<tr> <td>  Hydro-force </td> <td> <b> 1.30x</b> </td> </tr>
+<tr> <td> Total simulation </td> <td> **1.34×** </td>
+</table>
+
+At peak — around simulation time *a* = 0.4, when galaxy clusters are actively forming — the number of tree walks dropped by a factor of **10** and the instantaneous speedup hit **2.2×**. The larger search radius does increase inter-process communication, which is why the total speedup is more modest than the density-only gain.
+
+<h2>Takeaway</h2>
+
+The technique doesn't rely on anything Gadget3-specific beyond the space-filling curve ordering, which most modern N-body codes already use. If your code spends more time finding neighbours than computing physics, this idea is worth a look.
+
+<hr/>
+
+<i>
+	Work carried out at LRZ and LMU München, w
+	ith Nikola Tchipev, Michael Bader, Klaus Dolag, and Nicolay Hammer, tested within the Magneticum project.
+</i>
