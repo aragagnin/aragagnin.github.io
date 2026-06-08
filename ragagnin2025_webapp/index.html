@@ -1,99 +1,106 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    
-    <meta name="description" content="Obtain sparsity, mass and concentration from mass, scale factor or redshift, and cosmological parameter Omega_m, Omega_b, sigma8 and h0, for overdensityes 200c, 500c,  2500c, vir, 2005c">
-    <title>Halo masses and concentrations from Magnetiucm Box1a hydrodynamic simulations</title>
-    <meta name="author" content="Antonio Ragagnin">
-    <script type="text/javascript"	  src="brython.min.js">        </script>
-    <script type="text/javascript"          src="brython_stdlib.min.js">        </script>
-    <link rel="stylesheet" href="/post.css"> 
-    
-  </head>
-  <body onload="brython()">
-    <div id="loading" class="modal">
-      <div class="loader"></div> <span style="color:white; background-color:black">App is loading...</span>
-    </div>
-    
-    <script type="text/python" src="hydro_mc.py">		</script>
-    <script type="text/python" src="one_converter.py"></script>
-<!--    <script type="text/python" src="one_converter.js"></script>-->
-    <h1>Cosmology-dependent masses and concentrations from hydrodynamic Magneticum simulations</h1>
-    <article>
-    <p>This webpage allows to use the cosmology-dependent mass-concentration (Mc) and mass-mass (MM) from Magneticum hydrodynamic simulations
-      conversion relations presented in
-      <a href="https://ui.adsabs.harvard.edu/abs/2020arXiv201105345R/">Ragagnin et al. (2020)</a>.
-      
-      Here below you can insert cosmological parameters  ( &Omega;<sub>m</sub>,  &Omega;<sub>b</sub>,  &sigma;<sub>8</sub>,  h<sub>0</sub> ), masses,
-      scale factors (or redshifts) and overdensities &Delta;=<code>vir</code>, <code>200c</code>, <code>500c</code>, <code>2500c</code>, <code>200m</code>. 
-      The conversion routines used in this web-app are also available as a python package
-      <a href="https://github.com/aragagnin/hydro_mc"><code>github.com/aragagnin/hydro_mc</code></a>.
-      In the <b>Output</b> field you can choose between the c<sub>&Delta;</sub> (default) or any M<sub>&Delta;2</sub>  values.
-
-    </p>
-    <p>
-           We used <a href="https://brython.info/index.html">Brython</a> to open the access of our python library to this web-app.
-      For question or additional information pabout this page please contact Antonio Ragagnin (antonio.ragagnin at inaf.it).
-    </p>
-      
-    <div class="window">
-      <form id="mix_form">
+<head>
+	<meta charset="utf-8">
 	
-	<table>
-	  <tr><td>&Omega;<sub>m</sub>:</td><td>  <input name="omega_m" >      </td></tr>
-	  <tr><td>       &Omega;<sub>b</sub>:</td><td>  <input name="omega_b">      </td></tr>
-	  <tr><td>       &sigma;<sub>8</sub>:</td><td>  <input name="sigma8">      </td></tr>
-	  <tr><td>       h<sub>0</sub>:</td><td>  <input name="h0">      </td></tr>
-	  <tr><td>       z:</td><td> <input name="z"> <span id="a"></span>      </td></tr>
-	  <tr><td>       &Delta;1:</td><td> 
-	      <select name="delta1">
-		<option value="vir">vir</option>
-		<option value="200c">200c</option>
-		<option value="500c">500c</option>
-		<option value="2500c">2500c</option>
-		<option value="200m">200m</option>
-	      </select>
-	  </td></tr>
-	  <tr>
-	    <td>       M<sub>&Delta;1</sub>:</td>
-	    <td>  <input name="M" class="long">  [M<sub><small>&#x2299;</small></sub>]  </td>
-	    <td class="arrow"><span id="arrow1"></span>   </td>
-	    <td class="large">   
-	      <span id="c_delta1"></td>
-	  </tr>
-</tr></td>
-<tr><td>    &Delta;2:   </td><td>
-    <select name="delta2">
-		<option value="vir">vir</option>
-		<option value="200c">200c</option>
-		<option value="500c">500c</option>
-		<option value="2500c">2500c</option>
-		<option value="200m">200m</option>
+	<meta name="description" content="Obtain sparsity, mass and concentration from mass, scale factor or redshift, and cosmological parameter Omega_m, Omega_b, sigma8 and h0, for overdensityes 200c, 500c,  2500c, vir, 2005c">
+	<title>Halo masses and concentrations from Magnetiucm Box1a hydrodynamic simulations</title>
+	<meta name="author" content="Antonio Ragagnin">
+	<script type="text/javascript"	  src="brython.min.js">        </script>
+	<script type="text/javascript"          src="brython_stdlib.min.js">        </script>
+	<link rel="stylesheet" href="/post.css"> 
+	
+</head>
+<body onload="brython()">
+	<header>
+		<a href="/">&laquo; Antonio Ragagnin Homepage</a>
+	</header>
+	<div id="loading" class="modal">
+		<div class="loader"></div> <span style="color:white; background-color:black">App is loading...</span>
+	</div>
+	
+	<script type="text/python" src="hydro_mc.py">		</script>
+	<script type="text/python" src="one_converter.py"></script>
+	<!--    <script type="text/python" src="one_converter.js"></script>-->
+	<h1>Cosmology-dependent masses and concentrations from hydrodynamic Magneticum simulations</h1>
+	<article>
+		<p>This webpage allows to use the cosmology-dependent mass-concentration (Mc) and mass-mass (MM) from Magneticum hydrodynamic simulations
+			conversion relations presented in
+			<a href="https://ui.adsabs.harvard.edu/abs/2020arXiv201105345R/">Ragagnin et al. (2020)</a>.
+			
+			Here below you can insert cosmological parameters  ( &Omega;<sub>m</sub>,  &Omega;<sub>b</sub>,  &sigma;<sub>8</sub>,  h<sub>0</sub> ), masses,
+			scale factors (or redshifts) and overdensities &Delta;=<code>vir</code>, <code>200c</code>, <code>500c</code>, <code>2500c</code>, <code>200m</code>. 
+			The conversion routines used in this web-app are also available as a python package
+			<a href="https://github.com/aragagnin/hydro_mc"><code>github.com/aragagnin/hydro_mc</code></a>.
+			In the <b>Output</b> field you can choose between the c<sub>&Delta;</sub> (default) or any M<sub>&Delta;2</sub>  values.
+			
+		</p>
+		<p>
+			We used <a href="https://brython.info/index.html">Brython</a> to open the access of our python library to this web-app.
+			For question or additional information pabout this page please contact Antonio Ragagnin (antonio.ragagnin at inaf.it).
+		</p>
 		
-	      </select>
-	    </td>
-
-	    <td class="arrow"><span id="arrow2"></span>   </td>
-	    <td class="large space2">
-	      <span id="M_delta2"> </span><br/>
-	      <span id="c_delta2"> </span>
-	      
-	    </td>
-	  </tr>
-	  <!-- 
-	       <tr>
-	    <td colspan=2 class="space">
-	      <span id="M_delta2"> </span>
-	      <span id="c_delta2"> </span>
-	      <span id="error"></span>
-	  </td></tr>
-	  -->
-	         <tr><td colspan=4 class="space">    <span id="error"></span></td></td> 
-
-	</table>
-      </form>
-    </div>
-</article>
+		<div class="window">
+			<form id="mix_form">
+				
+				<table>
+					<tr><td>&Omega;<sub>m</sub>:</td><td>  <input name="omega_m" >      </td></tr>
+					<tr><td>       &Omega;<sub>b</sub>:</td><td>  <input name="omega_b">      </td></tr>
+					<tr><td>       &sigma;<sub>8</sub>:</td><td>  <input name="sigma8">      </td></tr>
+					<tr><td>       h<sub>0</sub>:</td><td>  <input name="h0">      </td></tr>
+					<tr><td>       z:</td><td> <input name="z"> <span id="a"></span>      </td></tr>
+					<tr><td>       &Delta;1:</td><td> 
+						<select name="delta1">
+							<option value="vir">vir</option>
+							<option value="200c">200c</option>
+							<option value="500c">500c</option>
+							<option value="2500c">2500c</option>
+							<option value="200m">200m</option>
+						</select>
+					</td></tr>
+					<tr>
+						<td>       M<sub>&Delta;1</sub>:</td>
+						<td>  <input name="M" class="long">  [M<sub><small>&#x2299;</small></sub>]  </td>
+						<td class="arrow"><span id="arrow1"></span>   </td>
+						<td class="large"><span id="c_delta1"></span></td>
+						
+					</tr>
+					<tr><td>    &Delta;2:   </td><td>
+						<select name="delta2">
+							<option value="vir">vir</option>
+							<option value="200c">200c</option>
+							<option value="500c">500c</option>
+							<option value="2500c">2500c</option>
+							<option value="200m">200m</option>
+							
+						</select>
+					</td>
+					
+					<td class="arrow"><span id="arrow2"></span>   </td>
+					<td class="large space2">
+						<span id="M_delta2"> </span><br/>
+						<span id="c_delta2"> </span>
+						
+					</td>
+				</tr>
+				<!-- 
+				<tr>
+					<td colspan=2 class="space">
+						<span id="M_delta2"> </span>
+						<span id="c_delta2"> </span>
+						<span id="error"></span>
+					</td></tr>
+					-->
+					<tr><td colspan=4 class="space">    <span id="error"></span></td>
+					</tr>		
+					
+				</table>
+				
+			</form>
+		</div>
+	</article>
+	<footer>
+		<a href="/">&laquo; Antonio Ragagnin Homepage</a>
+	</footer>
 </body>
 </html>

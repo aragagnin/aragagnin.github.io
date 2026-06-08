@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>X-ray faint galaxy clusters: what characterises this population that X-ray surveys are missing?</title>
+  <link rel="stylesheet" href="/post.css">
+  <meta name="description" content="observations from eROSITA or XMM are biased on X-ray bright haloes, What is mass-concentration, dynamical state, gas fraction of X-ray faint clusters?">
+  <meta name="keywords" content="cosmology, galaxy clusters, numerical simulations, magneticum, x-ray, eRosita, XMM">
+  <meta name="author" content="Antonio Ragagnin">
+</head>
+<body>
+    <header>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+    </header>
+  <section>
+    <h1>X-ray faint galaxy clusters: what characterises this population that X-ray surveys are missing?</h1>
+    <article>
+
+      <p>
+        The motivation behind <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al., 2022b</a>
+        it was an extremely exciting quest on
+        uncovering the origin of the objects that are biased to be missed by X-ray
+        observations: namely <b>X-ray faint groups and clusters.</b>
+      </p>
+      <p>
+        To this end,
+        we used <a href="https://magneticum.org/">Magneticum Box2/hr</a> simulations and computed
+        the mass, concentration, and X-ray luminosity of clusters
+        (we used tables
+        from <a href="https://adlibitum.oats.inaf.it/veronica.biffi/phox.html">PHOX</a> by Biffi et al.,
+        as used for instance in <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.474.4089T">Truong et al., 2018</a>).
+      </p>
+
+      <figure>
+        <img src="fgas_M_XUCS_Magn.svg" style="width:45%">
+        <img src="fgas_M_VikSun_Magn.svg" style="width:45%">
+        <figcaption>
+          Notice how observed galaxy cluster gas fractions from the optically selected sample XUCS
+          (<a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.2968P">Puddu et al. 2022</a>)
+          can reach <b>low gas fractions</b> compared to Magneticum simulations (left image).
+          By contrast, the X-ray selected
+          <a href="https://ui.adsabs.harvard.edu/abs/2006ApJ...640..691V">Vikhlinin</a>+<a href="https://ui.adsabs.harvard.edu/abs/2009ApJ...693.1142S">Sun</a>
+          (V+S) samples have higher gas fractions.
+          <p>Source: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a></p>
+        </figcaption>
+      </figure>
+
+      <h2>X-ray faint objects are old clusters that have run out of gas</h2>
+
+      <figure style="float:left; margin-right:0.5em">
+        <img src="MLx-massbin.svg">
+        <figcaption>
+          Cross-correlation between Magneticum Box2b/hr haloes.
+          <p>Source: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a></p>
+
+        </figcaption>
+      </figure>
+
+      <p>We know that X-ray luminosity is tightly related to gas fraction (see the Kaiser scaling relation modelling).
+        The new question therefore became: <b>what characterises gas-poor clusters?</b>
+      </p>
+
+      <p>
+        What we found (see Figure on the left) is an <b>anti-correlation</b> (at fixed mass)
+        between <b>gas fraction and NFW concentration</b>.
+        What does it mean? well, it is well estabilished
+        from the studies from <i>"the bigs"</i> of the DMO
+        papers era 
+        (<a href="https://ui.adsabs.harvard.edu/abs/arXiv:astro-ph%2F9908159">Bullock</a>, 
+        Kyplin, Maccio, Ludlow, NFW, ecc..), 
+        that <b>concentartion relaates to formation time.</b>
+       We therefore concluded that <b>X-ray faint objects are old.</b>
+      </p>
+
+      <p>
+        We then proceeded to understand <b>why they are old.</b>
+        What we found is that clusters that assembled early
+        have had more time for their central supermassive black holes to inject energy into the surrounding gas.
+        This AGN feedback is powerful enough to expel a substantial fraction of the intracluster gas entirely
+        beyond the virial radius.
+      </p>
+
+      <p>To confirm this finding
+        (and that is why I love using simulations)
+        we <b>tracked gas particles in time</b>
+        that were inside each halo at its formation epoch
+        and asked where they ended up at <code>z = 0</code>.
+        The ejected gas budget alone was sufficient to explain why old clusters are systematically gas-poor
+        compared to young ones at the same mass.
+      </p>
+
+      <h2>The role of AGN feedback</h2>
+      <figure>
+        <img src="fgas_vs_M_vs_c_rad_vs_fp.svg">
+        <figcaption>
+          Gas fraction colour-coded by concentration for models <b>without and with AGN feedback</b>.
+          <p>Source: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a></p> 
+        </figcaption>
+      </figure>
+
+      <p>A decisive test came from comparing full-physics
+        simulations with non-radiative runs (no AGN feedback, no star formation).
+        Without AGN, concentrated haloes are actually <em>more</em> gas-rich:
+        adiabatic contraction pulls gas inward as the dark matter halo deepens.
+        Switching on AGN feedback reverses this correlation: concentrated, early-forming clusters become gas-poor.
+        This explains why older simulation studies reported results that contradicted more recent ones:
+        different baryon physics prescriptions can reverse the sign of the gas fraction–concentration relation.
+      </p>
+
+      <h2>Final Remarks</h2>
+
+
+      <p>
+        I belive it is of extreme importance to remind
+        what kind of bias one encounter when you are 
+        biased towards X-ray bright or gas fraction rich clusters.
+        </p>
+        <p>
+        At fixed halo mass, these objects share a consistent set of properties: they are old (high formation redshift),
+        concentrated (<b>high NFW concentration</b>), <b>gas-poor</b>,
+        and host <b>unusually massive brightest central galaxies</b>,
+        because the BCG has had more time to accrete satellite galaxies.
+        This also implies they will resemble <b>fossil groups</b>.
+        They also tend to have slightly fewer member galaxies (<b>lower richness</b>).
+      </p>
+
+
+      <p>X-ray faint samples are the <b>oldest, most relaxed, gas-depleted clusters,</b>
+        missing them must be taken with care as 
+        one risk of biasing both the normalisation and scatter of the scaling relations used for cosmological inference.
+      </p>
+
+      <hr>
+
+      <p>Full paper: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a></p>
+    </article>
+  </section>
+  <footer>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+  </footer>
+</body>
+</html>

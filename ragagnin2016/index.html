@@ -15,7 +15,10 @@
     <b>nearby particles in memory</b> are also <b>nearby particles in space.</b>
   </p>
 </template>
-<section>
+    <header>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+    </header>
+    <section>
 <h1>Speeding up cosmological hydrodynamic simulations by exploiting space-filling curve</h1>
 <article>
 <p>
@@ -95,20 +98,45 @@ Even if each search is slightly more expensive, the total speedup can still be v
 </figure>
 
 
-<h2>Conclusions</h2>
+<h2>Final remarks</h2>
 
+<p>
 The technique doesn't rely on anything Gadget3-specific beyond the space-filling curve ordering,
 which most modern N-body codes already use. If your code spends more time finding neighbours than
 computing physics, this idea is worth a look.
+</p>
 
+<p>
+This technique can be activated in the SVN <b>Gadget3</b> code by using the switches <code>AR_GREENTREE_{DENSITY,HYDRA,CONDUCTION}</code>.
+And is activated by <b>default in OpenGadget3</b> (see file <code>CodeBase/greentree.hpp</code>).
+</p>
 
 <figure>
    <a href="https://ebooks.iospress.nl/publication/42679"><img src="ragagnin2016_book.png"></a>
    <figcaption>
     The work was carried out at LRZ and LMU Muenchen, with Nikola Tchipev, Michael Bader, Klaus Dolag, and Nicolay Hammer, tested within the Magneticum project.
     It has been published at <a href="https://ebooks.iospress.nl/publication/42679">ParCo 2016</a> @ Edinburgh (UK).
+    
    </figcaption>
 </figure>
+
+<p>Bibtex entry:
+    <pre>@INPROCEEDINGS{Ragagnin2016GreenTree,
+  author={{Ragagnin}, Antonio and {Tchipev}, Nikola and {Bader}, Michael and {Dolag}, Klaus and {Hammer}, Nicolay J.},
+  title="{Exploiting the Space Filling Curve Ordering of Particles in the Neighbour Search of Gadget3}",
+  keywords = {Astrophysics - Instrumentation and Methods for Astrophysics, Computer Science - Performance},
+  booktitle = {Advances in Parallel Computing},
+  year = 2016,
+  month = may,
+  volume={41},
+  pages = {411-420},
+  doi = {10.3233/978-1-61499-621-7-411},
+  archivePrefix = {arXiv},
+  eprint = {1810.09898},
+  primaryClass = {astro-ph.IM},
+  adsurl = {https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}</pre></p>
 
 Here below, I leave the PDF slides of a internal meeting presentation I gave in 2015.
 
@@ -116,4 +144,7 @@ Here below, I leave the PDF slides of a internal meeting presentation I gave in 
 </iframe>
 </article>
 </section>
+    <footer>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+    </footer>
 </body>
