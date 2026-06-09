@@ -158,14 +158,38 @@ iframe {
   background: #f9fafb;
 }
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-  article {
-    padding: 1.5rem;
-  }
+/* --- Mobile Styles (Breakpoints under 768px) --- */
+@media screen and (max-width: 768px) {
   
-  h1 {
-    font-size: 1.8rem;
+  /* (1) Header is a block (no position absolute) */
+  header {
+    position: static;
+    display: block;
+    width: 100%;
+    margin: 0; /* Clears desktop margins so it spans fully if needed */
+    box-shadow: none; /* Strips desktop box-shadow drop */
+  }
+
+  /* (2) Section and Article take full screen width */
+  section, 
+  article {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem 1rem; /* Reduces thick desktop padding so text fits */
+    border-radius: 0;      /* Strips curves for edge-to-edge flush appearance */
+    box-shadow: none;      /* Kills desktop card elevation illusion */
+  }
+
+  /* (3) No dancy effects */
+  a {
+    transition: none; /* Removes the 0.2s hover transition from your desktop rules */
+  }
+
+  /* Universal kill switch for any hidden animations or transforms */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
-
