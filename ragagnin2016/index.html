@@ -4,147 +4,148 @@
   <meta name="description" content="I profiled Gadget3 hydrodynamic cosmological simulations run and found tree walk was a bottlenceck, I exploited space-filling curve hilbert ordering to make the neighbour search faster">
   <meta name="keywords" content="neighbour-search, tree walk, space-filling curve, SFC, HPC,gadget, cosmology, cosmological simulations,  hilbert, peano, SPH">
   <meta name="author" content="Antonio Ragagnin"><item>
-</head>
-<template id="abstract">
- <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk with Ragagnin+2016 green-tree technique exploiting filling curve ordering" src="/ragagnin2016/ragagnin2016.jpg">
-  <p> 
-    During my PhD I worked on identifying and solving Gadget3 bottlenecks to allow running large simulations.
-    The bottleneck was the tree-walk based <b>neighbour search.</b>
-    We solved it with a brilliant idea (<a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al., 2016</a>): 
-    exploit that particles are ordered following a <b>space-filling curve</b> and 
-    <b>nearby particles in memory</b> are also <b>nearby particles in space.</b>
-  </p>
-</template>
-    <header>
+  </head>
+  <template id="abstract">
+    <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk with Ragagnin+2016 green-tree technique exploiting filling curve ordering" src="/ragagnin2016/ragagnin2016.jpg">
+    <p> 
+      During my PhD I worked on identifying and solving Gadget3 bottlenecks to allow running large simulations.
+      The bottleneck was the tree-walk based <b>neighbour search.</b>
+      We solved it with a brilliant idea (<a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al., 2016</a>): 
+      exploit that particles are ordered following a <b>space-filling curve</b> and 
+      <b>nearby particles in memory</b> are also <b>nearby particles in space.</b>
+    </p>
+  </template>
+  <header>
     <a href="/">&laquo; Antonio Ragagnin Homepage</a>
-    </header>
-    <section>
-<h1>Speeding up cosmological hydrodynamic simulations by exploiting space-filling curve</h1>
-<article>
-<p>
-  During <a href="https://homepages.usm.uni-muenchen.de/CAST/wp/projects/finished-phd-projects.html">my PhD</a>,
-our numerical group was facing some slow-downs in running large cosmological hydrodynamic simulations with
-<a href="https://wwwmpa.mpa-garching.mpg.de/gadget/">Gadget</a>3 (at the time, private repo).
-</p>
-
-<p>
-  We used <a href="https://www.scalasca.org/">scalasca</a> and profiled the hydrodynamic kernels 
-  runtimes of <a href="https://magneticum.org/">Magneticum</a> simulations.
-  We found that
-  <b>most of the time was not even spent actual physics computations,</b>
-  rather, most of the time was spent in the <b>tree walk neighbour search!</b>
-</p>
-<table>
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Time [s]</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Neighbour Search</td>
-      <td>263 000</td>
-    </tr>
-    <tr>
-      <td>Physics computation</td>
-      <td>155 000</td>
-    </tr>
-    <tr>
-      <td>MPI communication</td>
-      <td>72 000</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<h2> The Insight </h2>
-<figure>
-   <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk (left), and Ragagnin+2016 green-tree technique exploiting particle space filling curve ordering (right)" src="ragagnin2016_sketch.png">
-   <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
-</figure>
-
-<p>
-Gadget3 orders its particles using a 
-<a href="https://en.wikipedia.org/wiki/Hilbert_curve">Hilbert space-filling curve</a> 
-for <b>domain decomposition</b>. 
-The Hilbert curve has a key property: points nearby along the curve are also nearby in 3D space. 
-So particles stored consecutively in memory are physically close,
-and physically close particles share most of their neighbours.
-</p>
-<p>
-The fix, which I called <b>Neighbour Recycling</b>: instead of one tree walk per particle,
-group nearby particles together and perform a single tree walk for the whole group,
-over a slightly larger radius.
-</p>
-<p>
-To handle Gadget3's wildly varying densities, the grouping radius is made adaptive: 
-<pre>R = f * smoothing length</pre> 
-
-In the paper <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a>
-we find the optimal constant <b>f = 0.5</b> was found numerically,
-and corresponds to each tree walk searching for roughly 3x speedup.
-</p>
-
-<h2> Results </h2>
-
-Tested on the Magneticum box5/hr, simulation (18 Mpc/h, 2 x 81<sup>3</sup> particles, 8 MPI processes),
-The number of neighbour search drops drastically, close to a factor 10. 
-Even if each search is slightly more expensive, the total speedup can still be very large.
-
-<figure>
-   <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk speedup thanks to Ragagnin+2016 green-tree technique aware of space filling curve ordering of particles" src="ragagnin2016_speedup.png">
-   <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
-</figure>
-
-
-<h2>Final remarks</h2>
-
-<p>
-The technique doesn't rely on anything Gadget3-specific beyond the space-filling curve ordering,
-which most modern N-body codes already use. If your code spends more time finding neighbours than
-computing physics, this idea is worth a look.
-</p>
-
-<p>
-This technique can be activated in the SVN <b>Gadget3</b> code by using the switches <code>AR_GREENTREE_{DENSITY,HYDRA,CONDUCTION}</code>.
-And is activated by <b>default in OpenGadget3</b> (see file <code>CodeBase/greentree.hpp</code>).
-</p>
-
-<figure>
-   <a href="https://ebooks.iospress.nl/publication/42679"><img alt="Ragagnin et al. 2016 ParCo paper that exploits teh fact that neraby particles in memory are nearby in space (thanks to space filling curve ordering), technique is called Ragagnin et al. 2016" src="ragagnin2016_book.png"></a>
-   <figcaption>
-    The work was carried out at LRZ and LMU Muenchen, with Nikola Tchipev, Michael Bader, Klaus Dolag, and Nicolay Hammer, tested within the Magneticum project.
-    It has been published at <a href="https://ebooks.iospress.nl/publication/42679">ParCo 2016</a> @ Edinburgh (UK).
-    
-   </figcaption>
-</figure>
-
-<p>Bibtex entry:
-    <pre>@INPROCEEDINGS{Ragagnin2016GreenTree,
-  author={{Ragagnin}, Antonio and {Tchipev}, Nikola and {Bader}, Michael and {Dolag}, Klaus and {Hammer}, Nicolay J.},
-  title="{Exploiting the Space Filling Curve Ordering of Particles in the Neighbour Search of Gadget3}",
-  keywords = {Astrophysics - Instrumentation and Methods for Astrophysics, Computer Science - Performance},
-  booktitle = {Advances in Parallel Computing},
-  year = 2016,
-  month = may,
-  volume={41},
-  pages = {411-420},
-  doi = {10.3233/978-1-61499-621-7-411},
-  archivePrefix = {arXiv},
-  eprint = {1810.09898},
-  primaryClass = {astro-ph.IM},
-  adsurl = {https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R},
-  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-}</pre></p>
-
-Here below, I leave the PDF slides of a internal meeting presentation I gave in 2015.
-
-<iframe src="ragagnin2016_slides.pdf" width="100%" height="500px">
-</iframe>
-</article>
-</section>
-    <footer>
+  </header>
+  <section>
+    <h1>Speeding up cosmological hydrodynamic simulations by exploiting space-filling curve</h1>
+    <article>
+      <p>
+        During <a href="https://homepages.usm.uni-muenchen.de/CAST/wp/projects/finished-phd-projects.html">my PhD</a>,
+        our numerical group was facing some slow-downs in running large cosmological hydrodynamic simulations with
+        <a href="https://wwwmpa.mpa-garching.mpg.de/gadget/">Gadget</a>3 (at the time, private repo).
+      </p>
+      
+      <p>
+        We used <a href="https://www.scalasca.org/">scalasca</a> and profiled the hydrodynamic kernels 
+        runtimes of <a href="https://magneticum.org/">Magneticum</a> simulations.
+        We found that
+        <b>most of the time was not even spent actual physics computations,</b>
+        rather, most of the time was spent in the <b>tree walk neighbour search!</b>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Time [s]</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Neighbour Search</td>
+            <td>263 000</td>
+          </tr>
+          <tr>
+            <td>Physics computation</td>
+            <td>155 000</td>
+          </tr>
+          <tr>
+            <td>MPI communication</td>
+            <td>72 000</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      <h2> The Insight </h2>
+      <figure>
+        <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk (left), and Ragagnin+2016 green-tree technique exploiting particle space filling curve ordering (right)" src="ragagnin2016_sketch.png">
+        <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
+      </figure>
+      
+      <p>
+        Gadget3 orders its particles using a 
+        <a href="https://en.wikipedia.org/wiki/Hilbert_curve">Hilbert space-filling curve</a> 
+        for <b>domain decomposition</b>. 
+        The Hilbert curve has a key property: points nearby along the curve are also nearby in 3D space. 
+        So particles stored consecutively in memory are physically close,
+        and physically close particles share most of their neighbours.
+      </p>
+      <p>
+        The fix, which I called <b>Neighbour Recycling</b>: instead of one tree walk per particle,
+        group nearby particles together and perform a single tree walk for the whole group,
+        over a slightly larger radius.
+      </p>
+      <p>
+        To handle Gadget3's wildly varying densities, the grouping radius is made adaptive: 
+        <pre>R = f * smoothing length</pre> 
+        
+        In the paper <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a>
+        we find the optimal constant <b>f = 0.5</b> was found numerically,
+        and corresponds to each tree walk searching for roughly 3x speedup.
+      </p>
+      
+      <h2> Results </h2>
+      
+      Tested on the Magneticum box5/hr, simulation (18 Mpc/h, 2 x 81<sup>3</sup> particles, 8 MPI processes),
+      The number of neighbour search drops drastically, close to a factor 10. 
+      Even if each search is slightly more expensive, the total speedup can still be very large.
+      
+      <figure>
+        <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk speedup thanks to Ragagnin+2016 green-tree technique aware of space filling curve ordering of particles" src="ragagnin2016_speedup.png">
+        <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
+      </figure>
+      
+      
+      <h2>Final remarks</h2>
+      
+      <p>
+        The technique doesn't rely on anything Gadget3-specific beyond the space-filling curve ordering,
+        which most modern N-body codes already use. If your code spends more time finding neighbours than
+        computing physics, this idea is worth a look.
+      </p>
+      
+      <p>
+        This technique can be activated in the SVN <b>Gadget3</b> code by using the switches <code>AR_GREENTREE_{DENSITY,HYDRA,CONDUCTION}</code>.
+        And is activated by <b>default in OpenGadget3</b> (see file <code>CodeBase/greentree.hpp</code>).
+      </p>
+      
+      <figure>
+        <a href="https://ebooks.iospress.nl/publication/42679"><img alt="Ragagnin et al. 2016 ParCo paper that exploits teh fact that neraby particles in memory are nearby in space (thanks to space filling curve ordering), technique is called Ragagnin et al. 2016" src="ragagnin2016_book.png"></a>
+        <figcaption>
+          The work was carried out at LRZ and LMU Muenchen, with Nikola Tchipev, Michael Bader, Klaus Dolag, and Nicolay Hammer, tested within the Magneticum project.
+          It has been published at <a href="https://ebooks.iospress.nl/publication/42679">ParCo 2016</a> @ Edinburgh (UK).
+          
+        </figcaption>
+      </figure>
+      
+      <p>Bibtex entry:
+        <pre>@INPROCEEDINGS{Ragagnin2016GreenTree,
+          author={{Ragagnin}, Antonio and {Tchipev}, Nikola and {Bader}, Michael and {Dolag}, Klaus and {Hammer}, Nicolay J.},
+          title="{Exploiting the Space Filling Curve Ordering of Particles in the Neighbour Search of Gadget3}",
+          keywords = {Astrophysics - Instrumentation and Methods for Astrophysics, Computer Science - Performance},
+          booktitle = {Advances in Parallel Computing},
+          year = 2016,
+          month = may,
+          volume={41},
+          pages = {411-420},
+          doi = {10.3233/978-1-61499-621-7-411},
+          archivePrefix = {arXiv},
+          eprint = {1810.09898},
+          primaryClass = {astro-ph.IM},
+          adsurl = {https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R},
+          adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+        }</pre>
+      </p>
+      
+      Here below, I leave the PDF slides of a internal meeting presentation I gave in 2015.
+      
+      <iframe src="ragagnin2016_slides.pdf" width="100%" height="500px">
+      </iframe>
+    </article>
+  </section>
+  <footer>
     <a href="/">&laquo; Antonio Ragagnin Homepage</a>
-    </footer>
+  </footer>
 </body>
