@@ -69,13 +69,15 @@ a:hover {
   border-bottom:1px solid;
 }
 
-header{
-  position:absolute;
-  left:0;
-  padding:1em;
-  margin:1em;
-  border-radius:0.2em;
-  background-color:#11182755;
+
+header {
+    position: absolute;
+    left: 0;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 0.2em;
+    background-color: #fbfeff;
+    box-shadow: 13px 11px 30px 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgb(0 0 0 / 0%);
 }
 /* --- Code & Preformatted Text (Cool, not cringe) --- */
 code {
