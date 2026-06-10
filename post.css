@@ -158,7 +158,7 @@ iframe {
   background: #f9fafb;
 }
 
-@media (min-width: 10cm)  {
+@media (max-width: 80em)  {
   header {
     position: static;
     display: block;
@@ -166,8 +166,9 @@ iframe {
     margin: 0; 
     box-shadow: none; 
   }
-
+}
   
+@media (max-width: 10em)  {
   section, 
   article {
     width: 100%;
