@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="/post.css">
   <meta name="description" content="I profiled Gadget3 hydrodynamic cosmological simulations run and found tree walk was a bottlenceck, I exploited space-filling curve hilbert ordering to make the neighbour search faster">
   <meta name="keywords" content="neighbour-search, tree walk, space-filling curve, SFC, HPC,gadget, cosmology, cosmological simulations,  hilbert, peano, SPH">
-  <meta name="author" content="Antonio Ragagnin"><item>
+  <meta name="author" content="Antonio Ragagnin">
   </head>
   <template id="abstract">
     <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk with Ragagnin+2016 green-tree technique exploiting filling curve ordering" src="/ragagnin2016/ragagnin2016.jpg">
@@ -23,7 +23,11 @@
   <section>
     <h1>Speeding up cosmological hydrodynamic simulations by exploiting space-filling curve</h1>
     <article>
-      <p>
+    <p>
+      Space filling curves (see <a href="https://link.springer.com/rwe/10.1007/978-0-387-09766-4_145">Bader et al. @ Encyclopedia of Parallel Computing</a>, for a cohomprensive review)
+      are widely used in simulations for load balancing as they approximate the ideal domain decomposition (<a href="https://www.sciencedirect.com/science/article/pii/S1384107696000097">Dubinski et al. 2009</a>).
+      As a result, nearby particle in memory are also nearby particle in space. Can we exploit it to <b>speedup the neighbour search? Yes.</b>
+    </p>      <p>
         During <a href="https://homepages.usm.uni-muenchen.de/CAST/wp/projects/finished-phd-projects.html">my PhD</a>,
         our numerical group was facing some slow-downs in running large cosmological hydrodynamic simulations with
         <a href="https://wwwmpa.mpa-garching.mpg.de/gadget/">Gadget</a>3 (at the time, private repo).
@@ -81,11 +85,42 @@
       </p>
       <p>
         To handle Gadget3's wildly varying densities, the grouping radius is made adaptive: 
-        <pre>R = f * smoothing length</pre> 
-        
+        <code>R = f * hsml</code>, (where hsml is the SPH smoothing length),
+        and the number of particles in a group is <code>N_group = R^3</code>. 
+     <h2>How to find the optimal value for <code>f</code> parameter?</h2>   
+        <p>
+          If <code>f</code> is <b>too small</b>, we have no groupings and we revert to legacy-Gadget3,
+          if <code>f</code> is <b>too large</b>, we will create too large neighbour groups and we will take
+          too much time in filtering them.. so there must be a compromise where the code is fastest: <b>for which value of f</b>? 
+        </p>
+     <p>In a ideliazied homogeneus setup - the number of neigbour of a particle
+        scales as <code>N_ngb ~ hsml^3</code>, the superset of neighbour candidets 
+        as <code>N_candidates ~ (R + hsml)^3</code>.
+        There it is easy to derive that <code>f = (N_candidates/N_ngb)^1/3 - 1 = (N_group/N_ngb)^1/3</code>.
+      </p>
+      <p>
+        To find <code>f</code> we need to compute the time spent in neighbour search and minimize it.
+        In legacy Gadget for instance, it would be <code>T = N_active * N_ngb</code>,
+        where <code>N_active</code> is the number of active particles in this timestep and
+         <code>N_ngb</code> is the number of neighbours (tipically <code>N_ngb = 295</code>),
+         given that tree walk neighbour search scales with the number of neighbours (see <a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search">wikipedia</a>).
+       </p>
+       <p>  When it comes to the neighbour reciclying the number of searches goes with 
+        the number of groups <code>N_groups = N_active/N_group</code>
+        and then an additional term needed to filter out the exta neighbours candidates 
+        for each active particle (note this is a very crude and naive estimate, just to get an approximate evaluation). So we obtain:
+        <pre>
+          T = N_groups * N_ngb  + #<- tree walks
+            + N_active * N_candidates #<-filtering
+        </pre>
+        This expression can be minimised analitically (N_active can be factorised and act as an overall constant),
+        and one can obtain an analitical value of <code>f ~ 0.4.</code>
+      </p>
+      <p>
         In the paper <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a>
         we find the optimal constant <b>f = 0.5</b> was found numerically,
-        and corresponds to each tree walk searching for roughly 3x speedup.
+        and I think it is <b>astonishing</b> how the above analytical computation provided
+        a grouping radius that is now since long used in Gadget - succesfully - as optimal value.
       </p>
       
       <h2> Results </h2>

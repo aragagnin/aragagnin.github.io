@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+
+p{ 
+    text-align: justify;
+  text-justify: inter-word;
+}
 body {
   /* Soft, neutral background to make the white column pop */
   background-color: #f4f5f7; 
@@ -54,10 +59,6 @@ h2 {
   border-bottom: 2px solid #f3f4f6;
 }
 
-p {
-  margin-bottom: 1.25rem;
-  font-size: 1.05rem;
-}
 
 a {
   color: #2563eb;
@@ -79,18 +80,17 @@ header {
     background-color: #fbfeff;
     box-shadow: 13px 11px 30px 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgb(0 0 0 / 0%);
 }
-/* --- Code & Preformatted Text (Cool, not cringe) --- */
+
 code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  background-color: #f1f5f9; /* Subtle gray background */
-  color: #db2777; /* Tasteful deep pink/magenta for readability */
+  background-color: #f1f5f9; 
+  color: #db2777;
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
 }
 
 pre {
-  /* Modern, soft dark theme for blocks */
   background-color: #1e293b; 
   color: #e2e8f0; 
   padding: 1.5rem;
@@ -168,7 +168,7 @@ iframe {
   }
 }
   
-@media (max-width: 10em)  {
+@media (max-width: 50em)  {
   section, 
   article {
     width: 100%;
@@ -179,4 +179,5 @@ iframe {
     padding:0;    
   }
   article{padding:0.5em}
+  footer{padding:0.5em}
 }

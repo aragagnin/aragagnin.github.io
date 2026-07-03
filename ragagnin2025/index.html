@@ -1,0 +1,201 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastering 2D observations of X-ray, SZ, or optical (incl. weak lensing)</title>
+  <link rel="stylesheet" href="/post.css">
+  <meta name="description" content="Euclid Collaboration paper on multi-wavelength correlation matrix">
+  <meta name="keywords" content="euclid, weak lensing, SZ, X-ray, 2D, projection, projected, richness, Ragagnin">
+  <meta name="author" content="Antonio Ragagnin"><item>
+  </head>
+  
+  <header>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+  </header>
+  <section>
+    <h1>What to remind when dealing with projection effects in multi-wavelength cosmology</h1>
+    <article>
+      <figure>
+        <img alt="projection effect on galaxy clusters and groups from magneticum" src="map_random.svg">
+        <figcaption>
+          A random selection of <a href="www.magneticum.org">Magneticum</a>
+          galaxy clusters and groups <b>ordered by "projection effects"</b>:
+          i.e. the amount of matter in the <b>line-of-sight (LoS)</b>
+          (the top number is the LoS mass divided by the 3D mass within the halo radius),
+          coloured by <em>gas</em> (red channel), <em>stellar mass</em> (blue channel), and <em>dark matter</em> (green channel).
+          Notice how, these clusters may even have similar 3D virial masses, yet, since observations are done in projection,
+          the objects on the left will get a large variety of additional material.
+          <br/>
+          Source:   <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241200191E/abstract">Euclid Collaboration: Ragagnin et al. (2025)</a>
+        </figcaption>
+      </figure>
+      
+      <h2>The future is about multi-wavelength observations</h2>
+      
+      <p>
+        Different observational properties are have different biases and react differently with projection effects.
+        For instance  <b>X-ray</b> may be X-ray peak biased (Pacaud et al. 2016), while they are very lucky when
+        it comes to projection effects since X-ray emission scales with gas fraction squared (see <a href="https://ui.adsabs.harvard.edu/abs/1986MNRAS.222..323K/abstract">Kaiser 1986</a> or 
+        <a href="https://www.star.bris.ac.uk/bjm/lectures/cluster-cosmology/3-scaling.pdf">Eq. 2.2 in these</a> very nice lectures, or <a href="https://arxiv.org/pdf/astro-ph/0403542">de Silva 2004</a> eq. 4),
+        it's much more sensitive to peaked emissions and thus less affected by interlopers in the line of sight (LoS).
+        On the other hand, thermal <b>SZ</b> signal scales with the gas mass of a cluster (see <a href="https://arxiv.org/pdf/astro-ph/0403542">de Silva 2004</a> eq. 1).
+        For what concern the <b>optical</b> sector, similarly richness (and of course stellar mass) scales linearly with the contributing matter in the line of sight.
+        Then, reconstructions from <b>weak lensing</b>are much more complicated: the &Delta;&Sigma; weak lensing signal
+        contains a surface density term that is integrated from 0 to R (see <a href="https://arxiv.org/pdf/astro-ph/0411244">Brainerd 2004, Eq. 10)</a>,
+        which may run the risk of "spreading" details of &Sigma;  that are in the center of the cluster (and thus making it more difficult to model it with profiles as NFW).
+      </p>
+      <p>
+        Writing this paper was a great journey as it uncovered how line-of-sight <b>interlopers artificailly boost correlations</b> at all wavelengths;
+        and how small <b>non-NFW of total matter profiles impacts WL</b>;
+        and how multiwavelength mixing apertures (e.g. <b>500c for X-ray and 200c for SZ</b>) introduce biases related to the <a href="https://ui.adsabs.harvard.edu/abs/2014MNRAS.437.2328B/abstract">sparsity</a>
+        (and thus on accretion history, see <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.4951R/abstract">Richardon & Corasaniti, 2021</a>). 
+        
+      </p>
+      <h3>Few words on the numerical setup</h3>
+      <p>
+        For this study we used my favourite simulation suite, <a href="://www.magneticum.org">Magneticum</a> Box2b/hr,
+        we chose a "Euclid-motivated" mass range (see Sartoris works) of halo masses <code>M_200c > 1e14 Msun</code>
+        and redshifts of <code>z ~ 0</code> and <code>z ~ 1</code> to intersect redshifts of X-ray, SZ, and weak lensing obervations.
+        So we computed syntetic properties for both <b>Eucliud-like</b> and potential other <b>multi-wavelength</b> observations:
+        <ul>
+          <li>Euclid-derived properties: <b>Richness</b> (following Andreon+ technique), stellar mass, <b>weak lensing</b> mass, and halo concentration from NFW fits.</li>
+          <li>Complementary multi-wavelength data:  <b>X-ray</b> luminosity, thermal <b>SZ</b> signal, gas mass, temperature,</li>
+        </ul>
+        <small>Note: X-ray data computed as in Source: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a>,
+          namely from <a href="https://adlibitum.oats.inaf.it/veronica.biffi/phox.html">PHOX</a> by Biffi et al.,
+          as used for instance in <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.474.4089T">Truong et al., 2018</a></small>
+        </p>
+        
+        <h2>
+          Pay the right care to your observations as projection effects spuriously boost correlations (in different ways)
+        </h2>
+        <figure style="float:left ; margin-right:0.5rem">
+          <img src="3d_vs_2d.svg">
+        </figure>
+        <p>
+        When quantities are computed in projection,
+        they will get contribution from the interlopers in the line-of-sight.
+        This is going to boost the luminosity in all bands, however in a different way.
+        Thermal <b>SZ and stellar mass for instance, they scale linearly</b> with the amount of matter in the line of sight,
+        we can see in the image on the left, when quantities are computed on a cylinder (of 20cMpc/h) instead of a sphere,
+        they will get a correlation 
+        (on the other hand <b>X-ray depends on electron density squared</b> and is much less affectd by projection effects).
+        </p>       
+        <p>
+        To this purpose, in the image on the left, I show stellar mass scaling relation coloured by SZ signal both in 3D (top panel) and both in 2D (bottom panel).
+        Notice how going to 2D creates a correlation between the observables that was not present in 3D.
+        Basically, observing things in 2D is going to create new spurious correlations between observables.
+        </p>
+        <p>
+        Here below I show it much better: I colour code the 2D observable relations by the fractional amount of total mass in the line of sight
+        (the same value that is shown in the top figure).
+        Note the <b>vertical gradient! Residuals of the mean are basically mere indexes of the line-of-sight projected mass.</b>
+        </p>
+
+        <figure>
+          <img src="residuals_2d.svg">
+          <figcaption>
+            A small deviation from NFW is negligible in 3D fits (as we know from the large amount of literature),
+            however, 2D WL fits are significnatly affected: pay attention when you do these fits.
+            Source:   <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241200191E/abstract">Euclid Collaboration: Ragagnin et al. (2025)</a>
+          </figcaption>
+        </figure>
+        <h2 style="clear:both">
+          Remember: non-NFWness of galaxy clusters will bias your weak lensing mass-reconstruction
+        </h2>
+        <p>
+          DMO simulation profiles are wonderfully well fitted by NFW profiles.
+          However, people often assume that full-physics simulations should also follow an NFW profile.. 
+          And if you are wondering, the density profile of galaxy clusters it is
+          <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500.5056R/abstract">well known</a> to have deviations from NFW at small radii.
+          
+          It is of course fine to fit a NFW in hydrodynamic simulations, as long as in you take into account the consequent limitations!
+          For instance, as long as you perform a 3D fit farther away from the cluster core, you are going to recover,
+          however, what I show in the paper is that in the case of <b>weak lensing, unfortunately, this is not the case.</b>
+        </p>
+        <figure>
+          <img src="fit_colossus.svg">
+          <figcaption>
+            A small deviation from NFW is negligible in 3D fits (as we know from the large amount of literature),
+            however, 2D WL fits are significnatly affected: pay attention when you do these fits.
+            Source:   <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241200191E/abstract">Euclid Collaboration: Ragagnin et al. (2025)</a>
+          </figcaption>
+          
+        </figure>
+        
+        <p>
+          This is proved very easily in the following experiment: let's go fully analitical and check how non-NFWness impact 3D and 2D fits.
+          In this experiemnt I use <a href="https://bdiemer.bitbucket.io/colossus/halo_profile_nfw.html">colossus</a>
+          to produce a <b>simil-NFW profile,</b>
+          where the internal and external slope are slightly more steep than the classic -1 and -3 values.
+          In the top panel we see the <b>3D fit is unaffected,</b>
+          while the <b>&Delta;&Sigma; is strongly affected</b> (remember it contains an average from 0 to R).
+        </p>
+        <h2>
+          Know how to combine observables from different apertures properly:
+        </h2>
+        <figure style="float:left; margin-right:0.5rem">
+          <!--
+          <img src="covarma_500_vs_200.svg">
+          <br/>
+          -->
+          <img src="Mstar_500c_vs_200c.svg">
+        </figure>
+        <p>
+          Let's consider the following expertiment:
+          we have a gas mass scaling relation (here left, top panel) 
+          and focus on a tiny mass bins (vertical dashed lines) 
+          and change the x axis aperture from 500c to 200c (keeping the gas mass at 500c of course): what happens?
+          The result is the middle panel, the data points spreaded over a larger 200c-mass bins, 
+          and the color coding now is showing a vertical trend!
+          The color by the way, is the stellar mass, why is it happening?
+          We do expect gas-poor objects <a href="/ragagnin2022b/index.html">to be old</a>,
+          therefore to have <a href="https://ui.adsabs.harvard.edu/abs/2018ApJ...862...40C/abstract">a smaller sparsity</a>,
+          therefore to have lower M<sub>200c</sub> at fixed M<sub>500c</sub>!
+          So basically, the simple fact that sparsity correlates with dynamical state
+          introduced a bias between observable correlations when showing them at different
+          apertures (in this case, gas mass at 200c and stellar mass at 500c).
+          <!--
+          On the left we have a covariance matrix showing the the 200c-aperture concentration 
+          (&Sigma;<sub>ln</sub>c<sub>NFW</sub>, note in the paper, when omitted, is 200 aperture),
+          and, the gas mass within 200c-aperture (&Sigma;<sub>ln</sub>M<sub>g</sub>) 
+          and 500c-aperture (&Sigma;<sub>ln</sub>M<sub>g,500c</sub>)
+        -->
+        </p>
+        <h2 style="clear:both">What you need to ensure when it comes to projection effects</h2>
+        <!--
+        <figure>
+          <a href="covarma-3D.pdf"><img src="covarma-3D.svg" style="width:49%;"></a>
+          <a href="covarma-2D.pdf"><img src="covarma-2D.svg"  style="width:49%;"></a>
+          <figcaption>(click to download full size)</figcaption>
+        </figure>
+        -->
+        <p>
+          While <b>X-ray</b> observations are one of the <b>least</b> affected by projection effects,
+          observations as the <b>SZ</b> derived ones are <b>most</b> affected, this should be remember when doing multi-wavelength studies.
+        </p>
+        <p>
+          The complication here is that X-ray images are typically within R500c while SZ and optical within R200c,
+          mixing them may produce some biases due to dynamical state.
+        </p>
+        <p>
+          Moreover, no-one really thinks galaxy clusters should follow NFW profile in their very center,
+          and this is of corurse not a problem when dealing with 3D core-excised observations,
+          however, being  &Delta;&Sigma; dependent on an integral from 0 to R, 
+          the non-NFWness signatures can be seen up to large (~300-400 kpc scale) radii
+          this must
+          be remembered when dealing with weak lensing observations
+        </p>
+        
+        <p>
+          You can find the exact values of the 3D and 2D covariance matrixes in my paper
+        <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241200191E/abstract">Euclid Collaboration: Ragagnin et al. (2025)</a>. 
+      </p>
+      <p>Here below, I leave the PDF slides of a internal meeting presentation I gave in 2025.
+      </p>
+      <iframe src="Euclid_Ragagnin_2025.pdf" width="100%" height="500px">
+    </article>
+  </section>
+  <footer>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+  </footer>
+</body>

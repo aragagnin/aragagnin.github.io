@@ -1,38 +1,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 <url>
-<loc>https://aragagnin.github.io/</loc>
-<lastmod>2026-06-07T14:11:15+00:00</lastmod>
-<priority>1.00</priority>
+    <loc>https://aragagnin.github.io/</loc>
+    <lastmod>2026-06-07T14:11:15+00:00</lastmod>
+    <priority>1.00</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/papers/Antonio_Ragagnin_CV.pdf</loc>
-<lastmod>2026-06-07T16:39:53+00:00</lastmod>
-<priority>0.80</priority>
+    <loc>https://aragagnin.github.io/papers/Antonio_Ragagnin_CV.pdf</loc>
+    <lastmod>2026-06-07T16:39:53+00:00</lastmod>
+    <priority>0.80</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/c2pap_batch/index.html</loc>
-<lastmod>2026-06-07T16:00:53+00:00</lastmod>
-<priority>0.40</priority>
+    <loc>https://aragagnin.github.io/ragagnin2016/index.html</loc>
+    <lastmod>2026-07-02T16:00:53+00:00</lastmod>
+    <priority>0.99</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/ragagnin2016/index.html</loc>
-<lastmod>2026-06-07T16:00:53+00:00</lastmod>
-<priority>0.99</priority>
+    <loc>https://aragagnin.github.io/ragagnin2016/ragagnin2016_slides.pdf</loc>
+    <lastmod>2026-06-07T16:00:53+00:00</lastmod>
+    <priority>0.99</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/ragagnin2016/ragagnin2016_slides.pdf</loc>
-<lastmod>2026-06-07T16:00:53+00:00</lastmod>
-<priority>0.99</priority>
+    <loc>https://aragagnin.github.io/c2pap_batch/index.html</loc>
+    <lastmod>2026-07-02T16:00:53+00:00</lastmod>
+    <priority>0.40</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/ragagnin2021_webapp/index.html</loc>
-<lastmod>2026-06-07T16:00:53+00:00</lastmod>
-<priority>0.99</priority>
+    <loc>https://aragagnin.github.io/ragagnin2021_webapp/index.html</loc>
+    <lastmod>2026-07-02T16:00:53+00:00</lastmod>
+    <priority>0.99</priority>
 </url>
 <url>
-<loc>https://aragagnin.github.io/ragagnin2022b/index.html</loc>
-<lastmod>2026-06-07T16:10:53+00:00</lastmod>
-<priority>0.99</priority>
+    <loc>https://aragagnin.github.io/ragagnin2022b/index.html</loc>
+    <lastmod>2026-07-02T16:10:53+00:00</lastmod>
+    <priority>0.99</priority>
+</url>
+<url>
+    <loc>https://aragagnin.github.io/ragagnin2025/index.html</loc>
+    <lastmod>2026-07-02T10:00:53+00:00</lastmod>
+    <priority>0.99</priority>
+</url>
+<url>
+    <loc>https://aragagnin.github.io/ragagnin2025/Euclid_Ragagnin_2025.pdf</loc>
+    <lastmod>2026-07-02T10:00:53+00:00</lastmod>
+    <priority>0.99</priority>
 </url>
 </urlset>

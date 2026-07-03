@@ -8,6 +8,7 @@
   <meta property="og:image" content="https://aragagnin.github.io/images/antonio_ragagnin.png" />
   <meta name="description" content="Personal homepage of Antonio Ragagnin" />
   <meta name="author" content="Antonio Ragagnin" />    
+  <meta name="keywords" content="A Ragagnin, Ragagnin, Antonio Ragagnin">
   <style>
     * {
       font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -161,6 +162,15 @@
       display: table;
       clear: both;
     }
+
+    code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  background-color: #f1f5f9; /* Subtle gray background */
+  color: #db2777; /* Tasteful deep pink/magenta for readability */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
   </style>
   
   
@@ -178,12 +188,12 @@
       </small>
     </p>
     <br style="clear: both;">
-    <p> I am a postdoc at <a href="https://www.oats.inaf.it/index.php/it/">INAF-Trieste</a>.
-      I specialize in cosmological hydrodynamic simulations, zoom-in simulations of galaxy clusters,
-      high-performance computing (HPC), GPUs, self-interacting dark matter,
-      projection effects, gas poor galaxy clusters, and multi-wavelength mock observations
-      (X-ray, SZ, optical, as well as derived weak and strong lensing signals).
-    </p>
+    <p>
+    I am a numerical astrophysicist and I can manage the <b>full pipeline of hydrodynamical cosmological simulations</b>: from code
+development,
+to writing computational proposals for large-scale computing times to run full simulation campaigns,
+and self-consistently compare simulated data with observations thanks to strong collaborations with observational groups.
+</p>
     <p>
       <strong>Collaborations:</strong>
       <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid">Euclid</a>, <a href="http://www.magneticum.org/">Magneticum</a>, OpenGadget3, HydroSims, <a href="https://www.darkium.org/">Darkium</a>
@@ -192,8 +202,9 @@
   <main>
     <article>
       <div class="description">
-        <h3>My track record</h3>
+        <h3><a href="papers/index.html">My track record</a></h3>
         <img alt="Antonio Ragagnin presenting galaxy galaxy strong lensing galaxy cluster talk" src="images/confzoom.png" style="padding-left:2em">
+       
         <ul style="clear:both">
           <li><h4>Download my <a href="./papers/Antonio_Ragagnin_CV.pdf">Curriculum Vitae</a> (updated at December 2025) </h4></li>
           <li><h4>Check my <a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&q=%20author%3A%22ragagnin%2C%20antonio%22&sort=citation_count%20desc%2C%20bibcode%20desc&p_=0">SAO/NASA ADS</a> complete list of pubblications </h4></li>
@@ -202,7 +213,7 @@
       </div>
     </article>
     <article>
-      <h3>Mastering projection effects in multi-wavelength cosmology: a simulation-based covariance framework
+      <h3><a href="ragagnin2025/index.html">Mastering projection effects in multi-wavelength cosmology: a simulation-based covariance framework</a>
       </h3>
       <div class="description">
 
@@ -316,7 +327,7 @@
         <img src="images/g3readmap.png">
         <p>
           The <a href="https://github.com/aragagnin/g3read/">repository</a> contains a collection of <b>Python tools for reading and post-processing Gadget2/3 snapshots</b>,
-          particularly for Magneticum outputs (including the INFO block), and efficiently handling FoF/SubFind catalogs.  
+          particularly for Magneticum outputs (including the <code>INFO</code> block), and efficiently handling FoF/SubFind catalogs.  
           This repository includes core routines (g3read.py) that combine elements of Pynbody and ported legacy Klaus IDL routines.
           The library utilizes the GadgetFile class from Pynbody. If available, g3read will also leverage Numba for optimized performance.
         </p>
@@ -347,12 +358,14 @@
         (<b>gravity, SPH density, SPH hydrodynamics, and thermal conduction</b>) on <b>GPUs</b> with <b>OpenACC</b>  
         This was a significant collaborative effort, involving multiple hackathons and
         long-term partnerships with CSCS, PGI, and NVIDIA (see my CV).  
-        For further details, see my paper: <a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200310850R/abstract">Ragagnin et al. (2020)</a>.</p>
+        For further details, see my paper: <a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200310850R/abstract">Ragagnin et al. (2020)</a>;
+      and <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260617145R/abstract">Ragagnin et al. (2026)</a> for details on the accuracy tests;</p>
         <p>
-          Resources: <a href="https://www.youtube.com/watch?v=rgWyT2OVBNo">youtube presentation recording</a>
+          <a href="https://www.youtube.com/watch?v=rgWyT2OVBNo"><img alt="youtube logo" src="images/youtube.svg" style="height:1em;">presentation</a>
         </p>
       </div>
     </article>
   </main>
+
 </body>
 </html>
