@@ -58,6 +58,7 @@ def generate_citation_html(entries):
         #html += f"<p>[{e_n - ie}] "
         #html +=  f" <button onclick='showBibtex({bibtex!r})'>BibTeX</button>"
         html += '<li>'
+        #html += '<span class="authors">'
         for iauthor, author in enumerate(authors):
             author_clean = author.replace('Ragagnin','<b>Ragagnin</b>').strip()
             author_clean = author_clean.replace(r"\'a","&agrave;")
@@ -74,8 +75,10 @@ def generate_citation_html(entries):
             if mellier or (ragagnin_found and iauthor>=6):
                 break
             html += ', '
-        if (len(authors)>=(iauthor+1)):
+        if (iauthor<(len(authors)-1)):
             html += ' et al., '
+        #html += '</span>'
+
         title = e['title'].replace(r'\ensuremath','').replace(r'\Lambda','&Lambda;').replace(r'\nu','&nu;')
         html += f"({e['year'].replace(',','')}) <i>{title}</i> "
 
