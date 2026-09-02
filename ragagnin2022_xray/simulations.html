@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is the theoretical counterpart to large surveys</title>
+  
+  <link rel="stylesheet" href="/template/post.css">
+  
+  <meta name="keywords" content="cosmology, galaxy clusters, numerical simulations, magneticum, x-ray, eRosita, XMM, Ragagnin">
+  <meta name="author" content="Antonio Ragagnin">
+</head>
+<body>
+    <header>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+    </header>
+  <section>
+    <h1>What is the theoretical counterpart to large surveys</h1>
+    <article>
+      
+    <p class="alert info"><a href="index_popular.html">^^ go back to parent lecture ^^</a></p>
+      <p>To interpret the images from large surveys one need sofisticated theretical counterpart in the form of numerical simuatlions.
+  There, the final aim is to self-consistently model all matter components, with the least amount of assumptions.
+  How to do so? Well, for this we need to take a step back to understand what legacy undeniable informaiton we know 
+  about the large scale.
+  In year 1964 <a href="https://en.wikipedia.org/wiki/Cosmic_microwave_background">CMB</a>
+  a radiometer at Bell Telephone Laboratories first 
+  <span tip="by the way, by pure chance, unverified legend says they first tought it was bird escrements">measured</span>
+  an all-direction homogeneus radiation, that is theoretically explained as a residual from Big Bang 
+  <span 
+  tip="When Universe age crossed 378 000 year, electrons diluited enough so that photons could start travel freely.
+  This happens everywhere in the (known) Universe, therefore we receive the photons from every direction where
+  these photons traveled from that time until now to us.<br />  ">recombination</span>.
+  This radiation however contains small variations depending on the angle, and its fluctations
+  are
+  <a href="https://www.space.com/41207-dark-matter-dark-energy-planck-spacecraft.html">directly linked</a>.
+  So to run a simulation what people do is to create a program that stores a 
+  number of particles that attracts each other through 
+  <span tip="Yes, we model the Universe but we do not need general relativity: 
+  the velocities at play are negligible (at most few thausands km/s)
+  compared to the speed of light.
+  Also the Universe do not rotate so interactions from far away parts of the Universe
+  are homogeneous now as they were Gyrs ago.
+  ">Newtonian</span> gravity. </p>
+<p>How many  particles?
+  Suppose you want to simulate a (2Gpc)<sup>3</sup> volume with a resolution of a galaxy (~10<sup>11</sup> M<sub>o</sub>),
+  being the average density of the Universe <code>~50Msun/kpc^3</code>, you'd need
+  <code>((2000000kpc^3)*(50Msun/kpc^3)/(10^11Msun))</code>, that is 
+  ~1500<sup>3</sup> particles.
+  If you need 10 double floating points per particle (mass and 3D velocity, position, and acceleration),
+  you'd need +270GB of RAM to run it.</p>
+<p>What about the cosmology?
+  Well, the cosmological ingredients that enters in the typical cosmolgical simulations
+  are the <a href="https://en.wikipedia.org/wiki/Equation_of_state_(cosmology)">
+    energy density</a> 
+      component of the universe.
+    which in short tells you how much contribution an element is contributing
+    to the overall curvature of the Universe at the present time.
+      For instance, both from lensing and from the CMB we know that the dark matter 
+      nowadays contributes as <code>~0.27</code>, while, by measuring the visible matter we know
+      the visible matter accounts for <code>~0.045</code>.
+      I said nowadays, but how could these things be different in the past?
+      well, mainly because the Universe can expand (or in theory also contract)
+      and the curvature itself has a density term (so called &Omega;<sub>K</sub>):
+      so in the past the contribution of the dark matter and visible energy was higher
+      since the Universe was samller.
+      In the recent 20 years, by measuring the distance of nearby
+      supernovae we know the Universe is also accelerating in its expansion.
+      This acceleration is mapped as a so-called cosmological constant that is a constant
+      negative-pressured term in the Einstein equation of general relativity, and its contirbution
+      nowadays is approximately <code>~0.72,</code> or since observations show that 
+      on large scales our universe is flat, simulations always fix &Omega;<sub>&Lambda;</sub> = 1 - &Omega;<sub>matter</sub>.</p>
+<p>You may wonder, to compute force acceleration has complexity of
+  <span tip="for each particle you need to evaluate the contribution from each other particle">O(N<sup>2</sup>)</span> of 1500<sup>3</sup>.
+  This it true, but there are various approximations you can do to keep a good precision and a complexity of O(NlogN).
+  What proved to be succesful is a code <span tip="developed during the PhD thesis of">created</span> by Dr.
+  <a href="https://en.wikipedia.org/wiki/Volker_Springel">Volker Springel</a>:
+  <a href="https://en.wikipedia.org/wiki/GADGET">Gadget</a> first released in 2000.
+  Gadget evoled a lot and there are various versions and spin-offs with various strength and weakness.
+  The winning strategy to integrate gravitational interactinos that lasted for 25+ years however is still the same:
+  organise particles in a <a href="https://en.wikipedia.org/wiki/Octree">octree</a>, and treat long range forces with
+  the so called
+  <span tip="particles are binned in a grid and the interactions are computed between particles and grid cells">Particle-Mesh</span> technique
+  and <a href="https://en.wikipedia.org/wiki/Barnes%E2%80%93Hut_simulation">Barnes &amp; Hut</a> for short range interactions.</p>
+<figure>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/WMTAlhySl8o?si=3OVeQDmA-fBZ7Fzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <figcaption>
+    Cosmology nbody simulations from <a href="https://github.com/nunorc/cosmo-sims">Nuno Carvalho</a>
+  </figcaption>
+</figure>
+
+<p>To be more practical, here are a cosmological simulations (volume and resolutio not relevant here) evolved with TreePM Gadget-like code.
+  See how at the beginning of the video we see a hmogeneus cube as all matter at the beginning are almost equally spaced.
+  In reality, particles position and velocity deviate slightly from what you expect from a identical latex of particles.
+  These small deviations are computed from the initial
+  <a href="https://en.wikipedia.org/wiki/Matter_power_spectrum">power spectrum</a> of matter as 
+  measured from the distribution of the CMB.
+  As the time evolve, and as the <span tip="the redshift is the frequency shiftingdue to relativistic velocity. 
+  In a theoretical homogeneous expanding Universe, one can map 1:1 the age of the universe to its expansion rate
+  and thus to the average redshift of its galaxies. 
+  In scientific papers, people often interchange the average redshift at a given age of a Universe with its age.
+  This is done because people who do observations they are mainly dealing with redshift information rather than
+  an absolute universe age.
+  ">redshift lowers</span>, the particles start clumping together thanks to gravity: they form filaments and haloes,
+  and as haloes merge they form clusters with subhaloes.
+  If that simulation had gas and star formation, one would get that each halo cluster is a galaxy clusters hosting sub haloes as galaxy members.</p>
+    </article>
+  </section>
+  <footer>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How is the multi-wavelength Universe?</title>
+  
+  <link rel="stylesheet" href="/template/post.css">
+  
+  <meta name="keywords" content="cosmology, galaxy clusters, numerical simulations, magneticum, x-ray, eRosita, XMM, Ragagnin">
+  <meta name="author" content="Antonio Ragagnin">
+</head>
+<body>
+    <header>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+    </header>
+  <section>
+    <h1>How is the multi-wavelength Universe?</h1>
+    <article>
+      
+    <p class="alert info"><a href="index_popular.html">^^ go back to parent lecture ^^</a></p>
+      <figure>
+  <!--
+  <img src="ragagnin_2017_multiwavelength.png" alt="multi-wavelength view of a galaxy cluster: optical, X-ray, radio (SZ) and shock">
+  -->
+  <iframe style="width: 100%; height:20em;" src="slider.html"></iframe>
+  <figcaption> 
+    A galaxy cluster from <a href="http://www.magneticum.org">Magneticum</a>
+    (Dolag et al. <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250401061D/abstract">2025</a>),
+    image from the web portal <a href="https://c2papcosmosim.lrz.de/">c2papcosmosim.lrz.de</a> (Ragagnin et al. <a href="https://www.sciencedirect.com/science/article/abs/pii/S2213133716300713">2017</a>),
+    X-ray component from <a href="https://adlibitum.oats.inaf.it/veronica.biffi/phox.html">PHOX</a> 
+    (Biffi et al. <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.481.2213B">2018</a>)
+  </figcaption>
+</figure>
+
+<p>Here above, a syntehtic image from a galaxy cluster from the <a href="http://magneticum.org/">Magneticum</a>
+  (Dolag et al., <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250401061D/abstract">2025</a>)
+  numerical simulation.
+  From top left clockwise:
+  We can see the sysntethic optical emission from the stellar component of its galaxies,
+  the <a href="https://en.wikipedia.org/wiki/Sunyaev%E2%80%93Zeldovich_effect">Sunyaev-Zeldovich radio emission</a> (not covered in this article),
+  the X-ray emission (computed with <a href="https://adlibitum.oats.inaf.it/veronica.biffi/phox.html">PHOX</a>, Biffi et al. <a href="https://ui.adsabs.harvard.edu/abs/2012MNRAS.420.3545B/abstract">2012</a>),
+  and a map of the shocked gas (not relevant for this article).</p>
+<figure>
+  <img
+  src="round_obj.png"
+  alt="difference in morphology between optical image (left, more disturbed) and X-ray image (right, much more round)"
+  style="height:5em;"
+  >
+</figure>
+
+<p>Notice here below how cluster from the slider above, where it's optical image (left) is a lot streched diagonally. 
+  Now see how its X-ray emission (in the right) is much rounder than the optical one.
+  This is a first insight that the multi-wavelength observations of our Universe are tricky,
+  since they show different tracers: stars for the optical wavelength and gas for the X-ray emission,
+  with different dynamics where stars and galaxy are collisionless (interacts only through gravity 
+  if we exclude the very weak effect of star evaportaion), while gas is collisional and so can thermalise
+  in <span tip="Gyrs time scale">"short" time scales</span> make it more </p>
+<figure>
+  <img
+  src="2clusterx2bande.png"
+  alt="Two galaxy clusters (left and right panes) with similar mass of 1e14 Msun, on optical (blackish left subpanel) and X-ray (yellowish right subpanel) one has low gas fraction (peaked at the center), one has high gas fraction (diffused)  "
+  style="height:5em;"
+  >
+</figure>
+
+<p>Even more interestingly here below we have two clusters of galaxies and for each we see the optical and X-ray emission.
+They have the same total mass and stellar mass (see how their optical images are very similar) 
+but differ strongly on the X-ray emission,where one is rich of gas in the central part and the 
+other is gas-poor with a much extended emission
+(see from left two right: optical and X-ray emission of one cluster rich less-diffusue cluster
+  and then of the gas-poor but diffuse cluster).</p>
+<p><b>This is a problem for people who do cosmology:</b> first of all, how do they do it?
+  well, they have numerical and theoretical models of how many galaxy clusters of a given mass are in theory.
+  How you find them? well you discover it running numerical simulations, typically one chose gravity only simulations
+  and ignore gas and star formation and black hole accretion and feedback since these ingredients hardly affect
+  the total mass of a cluster (that is on Mpc scale).
+  For instance using the so called <a href="https://cluster-toolkit.readthedocs.io/en/latest/source/massfunction.html">halo mass function (HMF)</a>,
+  that is the theoretical number count of haloes in a given volume,
+  Just to give more details, for instance we know the HMF happens to be decreasing with mass,
+  this comes from the &Lambda;CDM simulations where we simulations showed the so called <b>hierarchical structure formation</b>:
+  we start from nearly homogeneous particle distribution and 
+  because of gravity small structures start aggregatingng together forming bigger and bigger structures.
+  One can go even further and search for spatial correlation between structures by estimating mathematically the correlation of having two (so called power spectrum)
+  or three and more haloes nearby.
+  So people run a lot of these simulations with different cosmologies, actually, running simulations
+  is so expensive that people try to run less and interpolate using so called emulators (e.g. <a href="https://bacco.dipc.org/emulator.html">Bacco</a>).</p>
+<p>so, the halo mass of an object is estimated through it's X-ray emission, typically assuming a hydrostatic equilibrium, which by the way, is not necssarely there,
+  while to estimate the mass of a halo from the amount of galaxy one assume a mass-richness relation</p>
+<figure>
+  <iframe
+  src="gallery.html?img=storia966/004.png&label=z0.25&img=storia966/003.png&label=z0.29&img=storia966/002.png&label=z0.34&img=storia966/001.png&label=z0.38&img=storia966/000.png&label=z0.42"
+  style="height:7em;"
+  ></iframe>
+</figure>
+
+<h2>Is observing the universe in X-ray an easy task?</h2>
+<p>And here comes the really hot topic: these telescopes are of course biased towarards observing X-ray bright objects..
+  so, if there are X-ray faint clusters, what are they? what are these cosmological survey missing? </p>
+<figure>
+  <img alt="Galaxy clusters and groups in non X-ray biased observations (XUCS, Puddu et al. 2020) have low gas fractions compared to Magneticum Box2/hr simulation (Ragagnin et al. 2022b)" src="fgas_M_XUCS_Magn.svg" style="width:45%">
+  <img alt="Galaxy clusters and groups in X-ray observations (Vikhlinin + Sun) have higher gas fractions compared to Magneticum Box2/hr simulation (Ragagnin et al. 2022b)" src="fgas_M_VikSun_Magn.svg" style="width:45%">
+  <figcaption>
+    Notice how observed galaxy cluster gas fractions from the optically selected sample XUCS
+    (<a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.2968P">Puddu et al. 2022</a>)
+    can reach <b>low gas fractions</b> compared to Magneticum simulations (left image, Dolag et al. <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250401061D/abstract">2025</a>).
+    By contrast, the X-ray selected
+    <a href="https://ui.adsabs.harvard.edu/abs/2006ApJ...640..691V">Vikhlinin</a>+<a href="https://ui.adsabs.harvard.edu/abs/2009ApJ...693.1142S">Sun</a>
+    (V+S) samples have higher gas fractions.
+    <p>Source: <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...666A..22R/abstract">Ragagnin et al. (2022b)</a></p>
+  </figcaption>
+</figure>
+
+<p>From the image above we see that while optical surveys (XUCS) measure gas fraction of galaxy clusters that are in agreement 
+with the results of <span tip="As opposed to the simulation in the interactive panel here above,
+hydrodynamic simulations self-consistently model the pristine gas content produced
+in the big bang nucleo-synthesis and further affected by metals
+produced in stars">hydrodynamic</span> numerical simulation of synthetic haloes</p>
+<p>X-ray brightness is essentially a proxy for how much hot gas a cluster is holding onto. 
+Two clusters of identical mass can have quite different amounts of gas: and therefore quite different X-ray luminosities.
+Earlier work already knew that these "baryonic" processes reshape cluster cores and gas content 
+(Duffy et al. <a href="https://ui.adsabs.harvard.edu/abs/2010MNRAS.405.2161D/abstract">2010</a> is one of my favourite read),
+and that a cluster gas content correlates with other structural properties, such as how centrally concentrated 
+(Bose et al. <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.5693B/abstract">2019</a>);
+and concentration itself being a marker of how dynamically settled, or "relaxed," a cluster is
+(Ludlow et al. <a href="https://ui.adsabs.harvard.edu/abs/2012MNRAS.427.1322L/abstract">2019</a>),
+while unsettled, still-merging clusters tend to be gas-rich
+(Davies et al. <a href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.491.4462D/abstract">2020</a>).</p>
+<p>What nobody had pinned down was a consistent, causal story for what makes some clusters systematically <b>X-ray faint</b>:
+under-luminous for their mass, and therefore at risk of being missed entirely by X-ray-selected catalogues.</p>
+    </article>
+  </section>
+  <footer>
+    <a href="/">&laquo; Antonio Ragagnin Homepage</a>
+  </footer>
+</body>
+</html>

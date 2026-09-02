@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+*{box-sizing:border-box}
+.slider{position:relative;width:100%;height:100%;overflow:hidden;touch-action:none;user-select:none}
+.slider img{position:absolute;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.before{position:absolute;inset:0;width:50%;overflow:hidden}
+.before img{width:100vw;max-width:none}
+.handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-50%);cursor:ew-resize}
+.handle i{position:absolute;top:50%;left:50%;width:44px;height:44px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;box-shadow:0 2px 8px #0005}
+.handle i:after{content:"‹ ›";position:absolute;inset:0;display:grid;place-items:center;font:22px Arial;color:#222;letter-spacing:-5px}
+</style>
+</head>
+
+<body>
+
+<div class="slider" id="s">
+
+  <img src="slider_after.png" draggable="false">
+
+  <div class="before" id="b">
+    <img src="slider_before.png" draggable="false">
+  </div>
+
+  <div class="handle" id="h">
+    <i></i>
+  </div>
+
+</div>
+
+<script>
+const s=document.getElementById("s"),b=document.getElementById("b"),h=document.getElementById("h");
+
+function move(x){
+  const r=s.getBoundingClientRect();
+  x=Math.max(0,Math.min(x-r.left,r.width));
+  const p=x/r.width*100;
+  b.style.width=p+"%";
+  h.style.left=p+"%";
+}
+
+h.onpointerdown=e=>{
+  e.preventDefault();
+  h.setPointerCapture(e.pointerId);
+  h.onpointermove=e=>move(e.clientX);
+};
+
+h.onpointerup=e=>{
+  h.onpointermove=null;
+  h.releasePointerCapture(e.pointerId);
+};
+
+s.onpointerdown=e=>{
+  if(!h.contains(e.target)) move(e.clientX);
+};
+</script>
+
+</body>
+</html>
