@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Da una panoramica storica della cosmologia alla comprensione degli ammassi di galassie deboli nei raggi X</title>
+  <title>Da una panoramica storica della cosmologia alla comprensione dei cluster di galassie deboli ai raggi X</title>
   <meta name="keywords" content="galassia, ammasso, cosmologia, raggi X, feedback AGN">
   <link rel="stylesheet" href="/template/post.css">
-  <meta name="description" content="lezioni di panoramica sugli ammassi di galassie">
+  <meta name="description" content="lezioni di panoramica sui cluster di galassie">
   <meta name="keywords" content="cosmology, galaxy clusters, numerical simulations, magneticum, x-ray, eRosita, XMM, Ragagnin">
   <meta name="author" content="Antonio Ragagnin">
 </head>
@@ -15,218 +15,236 @@
     <a href="/">&laquo; Antonio Ragagnin Homepage</a>
     </header>
   <section>
-    <h1>Da una panoramica storica della cosmologia alla comprensione degli ammassi di galassie deboli nei raggi X</h1>
+    <h1>Da una panoramica storica della cosmologia alla comprensione dei cluster di galassie deboli ai raggi X</h1>
     <article>
     <p class="update">Last update: 05/09/2026; <i>Passa alla versione originale in <a href="index_popular.html">inglese</a>.</i></p>
     
     
     
       <figure>
-<img src="banner.png" alt="Immagine dell'ammasso di galassie Abell 2390, credito: ESA">
+<img src="banner.png" alt="Abell 2390 galaxy cluster image, credit: ESA">
 <figcaption>
-Credito: <a href="https://www.esa.int/ESA_Multimedia/Images/2024/05/Euclid_s_new_image_of_galaxy_cluster_Abell_2390">ESA</a>/Euclid/Euclid Consortium/NASA,
-elaborazione dell'immagine di <a href="https://www.cfht.hawaii.edu/~jcc/">J. C. Cuillandre</a> (CEA Paris-Saclay), <a href="https://www.astromatic.net/team/emmanuel/">E. Bergin</a>, G. Anselmi. CC BY-SA 3.0 IGO
+Credit: <a href="https://www.esa.int/ESA_Multimedia/Images/2024/05/Euclid_s_new_image_of_galaxy_cluster_Abell_2390">ESA</a>/Euclid/Euclid Consortium/NASA,
+image processing by <a href="https://www.cfht.hawaii.edu/~jcc/">J. C. Cuillandre</a> (CEA Paris-Saclay),  <a href="https://www.astromatic.net/team/emmanuel/">E. Bergin</a>, G. Anselmi. CC BY-SA 3.0 IGO
 </figcaption>
 </figure>
 
-<p>L'obiettivo di queste quattro brevi lezioni è permettere ai non esperti di raggiungere un livello di conoscenza tale da apprezzare e comprendere un argomento di ricerca all'avanguardia in astrofisica.</p>
-<p>Per farlo, dovremo partire dai fondamenti della cosmologia: presenterò una panoramica storica di come la comunità scientifica abbia compreso la formazione delle galassie; perché osserviamo che le galassie non sono distribuite casualmente nel cielo, ma possono essere raggruppate (i cosiddetti ammassi di galassie); e perché gli ammassi di galassie emettono radiazioni a diverse lunghezze d'onda (dall'ottico ai raggi X). Vedremo come gli scienziati utilizzano queste informazioni per acquisire sempre più conoscenze sulla cosmologia del nostro Universo.</p>
-<p>Rivedremo anche il corrispettivo teorico delle osservazioni: le simulazioni numeriche come strumento per interpretare l'ampia quantità di dati osservati.</p>
-<p>Infine, avremo tutte le conoscenze di base per apprezzare e comprendere un particolare argomento scientifico all'avanguardia: come il monitoraggio dell'origine degli ammassi di galassie cosiddetti deboli nei raggi X possa contribuire ad avanzare gli studi cosmologici futuri.</p>
-<h2>Riassunto della lezione I: panoramica storica</h2>
-<p>La <b>prima lezione</b> della serie rivedrà gli ingredienti fondamentali 
+<p>L'obiettivo di queste quattro brevi lezioni è consentire ai non esperti 
+di raggiungere un livello di conoscenza tale da apprezzare e comprendere un argomento di ricerca astrofisica all'avanguardia. </p>
+<p>Per fare ciò, dovremo partire dalle basi della cosmologia: 
+presenterò una panoramica storica di come la comunità scientifica
+ha compreso il modo in cui si formano le galassie; perché osserviamo che le galassie non sono distribuite in modo casuale nel cielo, ma si trovano in gruppi (i cosiddetti ammassi di galassie, o cluster);
+e perché gli ammassi di galassie emettono radiazioni in varie lunghezze d'onda (dall'ottico ai raggi X);
+vedremo come gli scienziati utilizzano queste informazioni per ricavare sempre più dati sulla cosmologia del nostro Universo.</p>
+<p>Rivedremo anche la controparte teorica delle osservazioni: le simulazioni numeriche come strumento per interpretare la grande quantità di dati osservativi.</p>
+<p>Infine, avremo tutte le conoscenze di base per apprezzare e comprendere un particolare argomento scientifico all'avanguardia: come tracciare l'origine dei cosiddetti ammassi di galassie deboli ai raggi X possa aiutare a far avanzare i futuri studi di cosmologia.</p>
+<h2>Riepilogo della lezione I: panoramica storica</h2>
+<p>La <b>prima lezione</b> della serie esaminerà gli ingredienti fondamentali 
 <span title="
 Rivedremo un approccio storico che copre argomenti come il Big Bang;
-e come l'Universo primordiale fosse riempito da gas;
-come il gas abbia iniziato a raffreddarsi mentre l'Universo si espandeva;
-e, a causa della gravità, come vari grumi di gas abbiano iniziato ad attrarsi reciprocamente formando
+come l'Universo primordiale fosse riempito di gas;
+come il gas abbia iniziato a raffreddarsi con l'espansione dell'Universo;
+e come, a causa della gravità, vari agglomerati di gas abbiano iniziato ad attrarsi a vicenda formando
 regioni dense che hanno dato origine alle prime stelle (le quali sono esplose e hanno formato nuove stelle e nuovi elementi).
 Gas e stelle (insieme alla materia oscura) sono gli ingredienti principali delle galassie
 e degli ammassi di galassie
 ">dal Big Bang alla formazione degli ammassi di galassie</span>
-così come il motivo per cui le galassie si raggruppano in ciò che chiamiamo ammassi di galassie:
-sono le strutture più massive e 
+oltre al motivo per cui le galassie si raggruppano in ciò che chiamiamo ammassi di galassie:
+essi sono le strutture più massicce e 
 <span title="
-In termini approssimativi, significa che due oggetti astronomici orbitano attorno a un centro comune:
-ad esempio, il pianeta Terra è gravitazionalmente legato al Sole e orbita attorno ad esso;
-il Sole stesso è gravitazionalmente legato alla Via Lattea;
-allo stesso modo, le galassie negli ammassi sono gravitazionalmente legate tra loro e orbitano attorno a un centro comune">
-gravitazionalmente legate
+In termini semplici, significa che due oggetti astronomici orbitano attorno a un centro comune:
+ad esempio, il pianeta Terra è legato gravitazionalmente al Sole e orbita attorno ad esso;
+il Sole stesso è legato gravitazionalmente alla Via Lattea;
+Allo stesso modo, le galassie negli ammassi sono legate gravitazionalmente tra loro e orbitano attorno a un centro comune">
+legate gravitazionalmente
 </span>
-nel nostro Universo.
-Hanno raggi giganti dell'ordine di 
-<span title="per mostrarvi quanto sia gigantesco un milione di parsec, considerate quanto segue:
-un singolo parsec è già una dimensione astronomica paragonabile alla distanza tra il nostro Sole e la stella più vicina, Proxima Centauri (1,3 pc per la precisione); la nostra Via Lattea ha una grandezza di circa 10000-30000 parsec, e quindi è
-approssimativamente solo l'1% della dimensione di un ammasso di galassie.
-">circa 1 megaparsec (Mpc)</span>;
+del nostro Universo.
+Hanno raggi giganteschi dell'ordine di 
+<span title="per mostrare quanto sia gigantesco un milione di parsec, si consideri quanto segue:
+un singolo parsec è già una dimensione astronomica paragonabile alla distanza tra il nostro Sole e la stella più vicina Proxima Centauri (1,3 pc per la precisione); la nostra Via Lattea è grande circa 10.000-30.000 parsec, ed è quindi
+solo l'1% circa della dimensione di un ammasso di galassie.
+">circa 1 mega parsec (Mpc)</span>;
 emettono sia 
 <span title="Sono composti da galassie, che sono composte da stelle come il Sole, quindi emettono lo stesso tipo di luce">luce ottica</span>
-e
+sia
 <span title="La radiazione X proviene dal gas all'interno dell'ammasso di galassie: 
-l'Universo è riempito da gas prodotto durante il Big Bang;
-il gas cade verso il centro dell'ammasso di galassie a causa della gravità;
-mentre il gas si dirige verso il centro di un ammasso, subisce processi come 
-attrito, riscaldamento per shock e compressione;
-così il gas si riscalda e diventa uno stato detto plasma, in cui gli elettroni non sono più legati agli atomi;
-gli elettroni nel plasma emettono la cosiddetta emissione Bremsstrahlung libera-libera;
+l'Universo è riempito dal gas prodotto durante il Big Bang;
+esso cade verso il centro dell'ammasso di galassie a causa della gravità;
+man mano che il gas cade verso il centro di un ammasso, subisce processi come 
+attrito, riscaldamento da shock e compressione;
+quindi il gas si riscalda e diventa uno stato cosiddetto di plasma, in cui gli elettroni non sono più legati agli atomi;
+gli elettroni nel plasma emettono la cosiddetta radiazione Bremsstrahlung libero-libero;
 questa emissione è nella banda dei raggi X
-">radiazione a raggi X</span>;
-come interpretare queste osservazioni
+">radiazione X</span>;
+vedremo come interpretare queste osservazioni
 utilizzando modelli teorici come le simulazioni numeriche
 e come
 estrarre informazioni sulla cosmologia sottostante che governa il nostro Universo
 contando gli ammassi di galassie nel cielo.</p>
-<p>Questo è un argomento molto complesso e, dal punto di vista di una persona non esperta, può sembrare quasi <i>magico</i> il modo in cui la comunità astrofisica è riuscita ad acquisire una conoscenza così dettagliata semplicemente osservando tutto dalla nostra pianeta Terra. Tuttavia, gli astrofisici non hanno costruito questa enorme quantità di conoscenze in modo lineare e semplice: ci è voluto più di un secolo per sviscerare lentamente tutte le osservazioni e le possibili soluzioni enigmatiche. Pertanto, la prima lezione è strutturata con un approccio storico: per comprendere come l'umanità sia riuscita a progredire lentamente su un argomento così complesso.</p>
+<p>Questo è un argomento molto complesso e,
+dal punto di vista di un non esperto, può sembrare quasi una <i>magia</i> il modo in cui la comunità astrofisica sia arrivata a
+una conoscenza così dettagliata semplicemente osservando il tutto dal nostro pianeta Terra.
+Tuttavia, gli astrofisici non hanno costruito questo enorme bagaglio di conoscenze in modo lineare e semplice:
+ci è voluto più di un secolo per districare lentamente tutte le osservazioni enigmatiche e le possibili soluzioni.
+Pertanto la prima lezione è strutturata con un approccio storico:
+per capire come l'umanità sia riuscita a progredire lentamente su un argomento così complesso.</p>
 <h3>Come si osservano gli ammassi di galassie?</h3>
 <figure style="float:left; margin-right:0.5em; max-width:50%">
-<img src="abell2390_euclid.png" alt="Immagine del ammasso di galassie Abell 2390, credito: ESA">
+<img src="abell2390_euclid.png" alt="Abell 2390 galaxy cluster image, credit: ESA">
 <figcaption>
-Immagine catturata nel 2024 dal <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid">telescopio Euclid</a> dell'ammasso di galassie chiamato Abell 2390.
-Credito: <a href="https://www.esa.int/ESA_Multimedia/Images/2024/05/Euclid_s_new_image_of_galaxy_cluster_Abell_2390">ESA</a>/Euclid/Euclid Consortium/NASA,
-elaborazione dell'immagine di <a href="https://www.cfht.hawaii.edu/~jcc/">J.-C. Cuillandre</a> (CEA Paris-Saclay), G. Anselmi. CC BY-SA 3.0 IGO
+Image captured in 2024 by <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid">Euclid telescope</a> of so-called Abell 2390 galaxy cluster.
+Credit: <a href="https://www.esa.int/ESA_Multimedia/Images/2024/05/Euclid_s_new_image_of_galaxy_cluster_Abell_2390">ESA</a>/Euclid/Euclid Consortium/NASA,
+image processing by <a href="https://www.cfht.hawaii.edu/~jcc/">J.-C. Cuillandre</a> (CEA Paris-Saclay), G. Anselmi. CC BY-SA 3.0 IGO
 </figcaption>
 </figure>
 
-<p>Si potrebbe ingenuamente pensare che le galassie nel nostro Universo siano sparse e distribuite in modo casuale.<br />
-Tuttavia, prendi questa recente <span title="l'immagine è stata elaborata in modo intelligente da un team di ricercatori spesso sottovalutato">immagine</span> del telescopio Euclid, dove ogni punto qui rappresenta una galassia molto lontana<br />
-<span title="(proprio come la nostra Via Lattea, composta fino a 10^9-10^10 stelle come il nostro Sole)">galassia</span>:<br />
-se osserviamo la parte centrale dell'immagine, possiamo notare che i punti non sono disposti in modo casuale, ma sembrano essere leggermente raggruppati.<br />
-In effetti, l'Universo osservabile contiene molte galassie che si presentano sotto forma di gruppi e ammassi.</p>
-<p>Lo studio di questi cosiddetti ammassi di galassie è fondamentale per la cosmologia e, nell'ultimo secolo, abbiamo sviluppato il quadro teorico per comprendere <i>perché</i> si raggruppino (in breve: a causa dell'attrazione gravitazionale) e per prevedere numericamente (in media) il numero di ammassi atteso per un dato modello cosmologico. Trovare questi ammassi non è un compito facile, quindi la comunità ha sviluppato algoritmi sofisticati per riconoscere gli ammassi di galassie in grandi immagini (ad esempio, <a href="https://arxiv.org/abs/1705.03029">AMICO di Bellagamba et al.</a> 2017).</p>
-<h2>Riassunto delle lezioni II e III: simulazioni numeriche</h2>
+<p>Si potrebbe ingenuamente pensare che le galassie nel nostro Universo siano sparse e distribuite in modo casuale.
+Tuttavia, prendiamo questa recente <span title="l'immagine è stata sapientemente elaborata da un team di ricercatori spesso non abbastanza riconosciuto">immagine</span> del telescopio Euclid, dove ogni punto qui è una galassia molto distante 
+<span title="(simile alla nostra Via Lattea, composta fino a 10^9-10^10 stelle come il nostro Sole)"></span>:
+se guardiamo la parte centrale dell'immagine, possiamo vedere che lì i punti non sono disposti a caso, ma sembrano essere leggermente raggruppati insieme.
+In effetti, l'Universo osservabile contiene moltissime galassie sotto forma di gruppi e ammassi.</p>
+<p>Lo studio di questi cosiddetti ammassi di galassie è fondamentale per lo studio della cosmologia,
+e nell'ultimo secolo abbiamo sviluppato il quadro teorico per 
+comprendere <i>perché</i> si raggruppano (in breve: a causa dell'attrazione gravitazionale)
+e per prevedere numericamente (in media) il numero di ammassi atteso per un dato modello cosmologico.
+Trovare questi ammassi non è un compito facile, quindi la comunità ha sviluppato algoritmi sofisticati per riconoscere gli ammassi di galassie in immagini di grandi dimensioni (ad es. <a href="https://arxiv.org/abs/1705.03029">AMICO di Bellagamba et al.</a> 2017).</p>
+<h2>Riepilogo delle lezioni II e III: simulazioni numeriche</h2>
 <figure>
-<img src="banner_sims.png" alt="Mappa 2D della simulazione Millennium credito: ESA">
+<img src="banner_sims.png" alt="Millennium simulation 2d map credit: ESA">
 <figcaption>
-Credito: ESA/ <a href="https://www.mpa-garching.mpg.de/person/55019">Springel</a> et al. (<a href="https://www.nature.com/articles/nature03597">2005</a>), simulazioni <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo/millennium/">Millennium</a> (dal <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo">Consorzio Virgo</a>)
+Credit: ESA/ <a href="https://www.mpa-garching.mpg.de/person/55019">Springel</a> et al. (<a href="https://www.nature.com/articles/nature03597">2005</a>), <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo/millennium/">Millennium</a> simulations (from <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo">Virgo</a> Consortium)
 </figcaption>
 </figure>
 
-<p>Per interpretare al meglio le immagini provenienti dai telescopi, nonché l'enorme quantità di dati che ne estraiamo, 
-gli scienziati spesso utilizzano le cosiddette <b>simulazioni numeriche</b>.
-La <b>seconda lezione</b> illustra il funzionamento di queste simulazioni al computer.
-Le simulazioni cosmologiche partono dall'ipotesi di una distribuzione iniziale della materia 
-<span title="(Non mostro alcuna immagine di essa poiché sarebbe un'immagine monocromatica molto noiosa); ">quasi omogenea</span> del nostro Universo 
-e applicano poi le leggi della fisica (principalmente 
+<p>Per interpretare al meglio le immagini dei telescopi e la grande quantità di dati che estrapoliamo da esse, 
+gli scienziati usano spesso le cosiddette <b>simulazioni numeriche</b>.
+La <b>seconda lezione</b> presenta come funzionano queste simulazioni al computer.
+Le simulazioni cosmologiche iniziano con l'ipotesi di una distribuzione iniziale di materia del nostro Universo primordiale e 
+<span title="(Non mostro alcuna immagine in merito poiché sarebbe un'immagine monocromatica molto noiosa); ">quasi omogenea</span>; 
+applicano poi le leggi della fisica (principalmente la 
 <span title="
-Durante la lezione vedremo anche perché possiamo limitarci a usare la gravità newtoniana, invece della Relatività Generale,
+Nella lezione vedremo anche perché possiamo usare semplicemente la gravità newtoniana, al contrario della Relatività Generale,
 anche se stiamo trattando strutture grandi quanto l'Universo osservabile
-">gravità</span>) per permettere alle minuscole fluttuazioni di crescere: la gravità fa sì che esse attraggano la materia circostante, rendendola sempre più densa. 
+">gravità</span>) per consentire alle piccole fluttuazioni di crescere man mano che la gravità fa sì che attraggano il materiale circostante, rendendole sempre più dense. 
 Queste simulazioni richiedono una 
 <span title="
-In termini semplici, pensate alla risoluzione di un'immagine (o di un grande poster), che deve coprire un'area molto ampia
-ma avere al contempo una risoluzione sufficientemente elevata da mostrare molti dettagli minuscoli.
-">risoluzione</span> adeguata per risolvere il nucleo centrale degli ammassi di galassie (0,01-0,02 Mpc) e al contempo coprire volumi su scale cosmologiche 
-di almeno 300-400 Mpc.</p>
-<p>Per comprendere quanto siano impegnativi questi numeri, tra <b>0,01 Mpc e 400 Mpc</b>, c'è una differenza di quasi cinque ordini di grandezza:
-questo è paragonabile alla dimensione di <i>una singola persona in uno stadio di calcio</i> o alla durata di <i>un singolo giorno nell'arco temporale di 270 anni</i>.
-Per poter simulare questi valori di risoluzione estremamente impegnativi, queste simulazioni richiedono <i>enormi</i> quantità di memoria e potenza di calcolo.
+In parole povere, si pensi alla risoluzione di un'immagine (o di un grande poster), che deve coprire un'area molto vasta
+ma anche avere una risoluzione abbastanza alta da mostrare molti piccoli dettagli.
+">risoluzione</span> sufficientemente elevata da risolvere il centro stesso dei nuclei degli ammassi di galassie (0,01-0,02 Mpc) e al tempo stesso coprire volumi su scala cosmologica di almeno 300-400 Mpc.</p>
+<p>Per capire quanto siano impegnativi questi numeri, tra <b>0,01 Mpc e 400 Mpc</b> ci sono quasi 5 zeri di differenza: 
+questo è paragonabile alla dimensione di <i>una singola persona in uno stadio di calcio</i> o alla durata di <i>un singolo giorno in un arco temporale di 270 anni</i>.
+Per essere in grado di simulare questi valori di risoluzione estremamente complessi, queste simulazioni richiedono requisiti <i>enormi</i> di memoria e CPU.
 Devono essere eseguite su centinaia di computer che lavorano in parallelo nei cosiddetti cluster di calcolo (i più moderni richiedono <b>centinaia di 
 <span title="
-TB sono Terabyte, pari a 1000 Gigabyte. Per dare un'idea di questa quantità, si noti che un tipico laptop ha 8-16 Gigabyte di memoria
+I TB sono Terabyte, ovvero 1000 Gigabyte. Per mettere questo numero in prospettiva, si noti che un tipico laptop ha 8-16 Gigabyte di memoria
 ">TB</span>
-di RAM</b> e spazio di archiviazione fisica)</p>
-<p>L'immagine qui sopra è prodotta da una delle simulazioni cosmologiche più importanti mai realizzate, le cosiddette simulazioni <b>Millennium</b>, prodotte nei primi anni 2000 da <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo/millennium/">Volker Springel e il Virgo Consortium</a>, che erano impressionantemente grandi per l'epoca:
-Segue l'evoluzione di 10 miliardi di particelle (ciascuna con il suo array 3D di posizioni e velocità).
-Le loro posizioni e velocità iniziali provengono da una griglia quasi omogenea (con un piccolo spostamento per distribuire i punti secondo un presumibilmente iniziale
-<a href="https://en.wikipedia.org/wiki/Spectral_density#Power_spectral_density">spettro di potenza</a> come misurato dalle
+di RAM</b> e di archiviazione fisica).</p>
+<p>L'immagine qui sopra è prodotta da una delle più importanti simulazioni cosmologiche mai realizzate, la cosiddetta simulazione <b>Millennium</b>, prodotta nei primi anni 2000 da <a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo/millennium/">Volker Springel e dal Virgo Consortium</a>, che era impressionante per le dimensioni di quegli anni:
+essa segue l'evoluzione di 10 miliardi di particelle (ciascuna con il suo array 3D di posizioni e velocità).
+Le loro posizioni e velocità iniziali provengono da una griglia quasi omogenea (con un piccolo spostamento per distribuire i punti secondo un presunto 
+<a href="https://en.wikipedia.org/wiki/Spectral_density#Power_spectral_density">spettro di potenza</a> iniziale misurato dalle osservazioni del 
 <span title="
-è un'intensità radio quasi identica da tutte le direzioni verso il nostro pianeta Terra;
-e oltre ad essere una prova della teoria del Big Bang
+Si tratta di un'intensità radio quasi identica da tutte le direzioni rispetto al nostro pianeta Terra;
+oltre ad essere una prova della teoria del Big Bang
 (in particolare che molto tempo fa l'Universo era così denso che i fotoni erano accoppiati con gli elettroni),
-le sue minuscole inhomogeneità forniscono informazioni sulla quantità di materia e sulle fluttuazioni primordiali del nostro Universo,
-queste fluttuazioni possono essere usate come seme per le simulazioni numeriche
-(ad esempio, la quantità di fluttuazioni può controllare quanti ammassi di galassie si formeranno).
-">fondo cosmico a microonde, CMB</span>
-osservazioni) e poi evolute con la gravità newtoniana fino all'età attuale dell'Universo.</p>
-<p>I risultati di queste simulazioni mostrano la formazione della cosiddetta <b>ragnatela cosmica:</b>
-sebbene la materia nell'Universo abbia iniziato come omogenea,
-man mano che l'Universo evolve, a scale inferiori a 50-100 Mpc diventa sempre più inomogenea grazie alla gravità:
+le sue minime disomogeneità forniscono informazioni sulla quantità di materia e sulle fluttuazioni primordiali del nostro Universo;
+queste fluttuazioni possono essere utilizzate come seme per le simulazioni numeriche
+(ad esempio, l'entità delle fluttuazioni può controllare quanti ammassi di galassie si formeranno).
+">fondo cosmico a microonde, CMB</span>)
+e poi fatte evolvere con la gravità newtoniana fino all'età attuale dell'Universo.</p>
+<p>I risultati di queste simulazioni mostrano la formazione della cosiddetta <b>ragnatela cosmica (cosmic web):</b>
+sebbene la materia nell'Universo sia iniziata come omogenea, man mano che l'Universo evolve, a scale inferiori a 50-100 Mpc diventa sempre più disomogenea grazie alla gravità:
 presenta <b>vuoti</b>, <b>pareti</b> e <b>filamenti</b>, i cui nodi
-sono gli aloni che ospitano i più massicci <b>ammassi di galassie</b>.</p>
-<p>Facciamo un esempio su come le simulazioni potrebbero essere <i>praticamente</i> utilizzate per interpretare meglio le osservazioni.
-La densità media della materia del nostro Universo non è nota con un'alta precisione,
-poiché diversi sondaggi osservativi recuperano valori relativamente diversi
+sono gli aloni che ospitano gli <b>ammassi di galassie</b> più massicci.</p>
+<p>Facciamo un esempio di come le simulazioni potrebbero essere utilizzate <i>praticamente</i> per interpretare meglio le osservazioni.
+La densità media di materia del nostro Universo non è nota con un'ottima precisione,
+poiché diverse survey osservative ricavano valori relativamente differenti
 (
 <span title="
 Se sei abbastanza coraggioso da aprire il link e provare a leggerlo, considera che
-lì vedrai che la densità media della materia del nostro Universo è espressa con il simbolo &Omega;M
+lì la densità media di materia del nostro Universo è espressa con il simbolo &Omega;M
 ">vedi</span>
-   <a href="https://www.desi.lbl.gov/2025/01/12/brushing-away-dust-to-uncover-cosmology-examining-the-sigma-8-tension-with-desi-galaxies/">rapporto dello Strumento Spettroscopico per l'Energia Oscura, DESI</a>).
-Per risolvere questo problema si potrebbero eseguire molte simulazioni numeriche, ciascuna
-ipotizzando una diversa densità media della materia del nostro Universo.
-Poi si analizzerebbero i risultati delle simulazioni alla ricerca di differenze significative tra le simulazioni
-(ad esempio, simulazioni eseguite con diversi parametri cosmologici potrebbero portare a osservare meno o più ammassi di galassie).</p>
-<p>Per interpretare meglio queste discrepanze, sono necessarie simulazioni in grado di riprodurre con grande precisione la distribuzione stellare e del gas all'interno degli ammassi di galassie, al fine di prevedere rispettivamente la loro emissione ottica e a raggi X.
-Pertanto, la <b>terza lezione</b> esamina come le simulazioni numeriche possano tenere conto del gas che forma le stelle, delle stelle che possono esplodere e arricchire il gas circostante con nuovi elementi,
-di come le tecniche di simulazione modellino la formazione dei buchi neri supermassicci e di come rappresentino i potenti getti
-che essi possono emettere.</p>
-<h2>Riassunto della lezione IV: ammassi di galassie deboli nei raggi X</h2>
-<p>Infine, la <b>quarta lezione</b> esamina un argomento all'avanguardia in astrofisica:
-un piccolo tassello del molto più ampio puzzle della determinazione della cosmologia del nostro Universo.
-In particolare, esamineremo perché l'emissione a raggi X di alcuni ammassi di galassie è molto debole (come pubblicato in Ragagnin et al. <a href="https://www.aanda.org/articles/aa/abs/2022/10/aa44397-22/aa44397-22.html">2022</a>).</p>
-<p>Questo è importante perché i conteggi dei cluster sono difficili e gli studi osservativi devono modellare correttamente gli oggetti X-ray deboli potenzialmente mancanti. Pertanto, è anche importante sapere che tipo di oggetti potrebbero essere mancanti.</p>
-<p>Le simulazioni numeriche sono uno strumento meraviglioso per risolvere questi problemi:
-partono da una distribuzione omogenea della materia e, man mano che la simulazione al computer procede,
-troviamo "magicamente"
-<span title="Guarda l'immagine della simulazione nella banner della sezione precedente:
-vedrai la materia distribuita in filamenti e nodi (dove vivono i più massicci ammassi di galassie)">
+   <a href="https://www.desi.lbl.gov/2025/01/12/brushing-away-dust-to-uncover-cosmology-examining-the-sigma-8-tension-with-desi-galaxies/">report del Dark Energy Spectroscopic Instrument, DESI</a>).
+Per risolvere questo problema, si potrebbero eseguire molte simulazioni numeriche, ciascuna ipotizzando una diversa densità media di materia del nostro Universo.
+Quindi si analizzerebbero i risultati delle simulazioni alla ricerca di differenze significative tra di esse
+(ad esempio, simulazioni eseguite con parametri cosmologici diversi potrebbero portare all'osservazione di un numero minore o maggiore di ammassi di galassie).</p>
+<p>Per interpretare al meglio queste discrepanze servono simulazioni in grado di riprodurre estremamente bene la distribuzione di stelle e gas all'interno degli ammassi di galassie, in modo da predirne rispettivamente l'emissione ottica e ai raggi X.
+Pertanto, la <b>terza lezione</b> esamina come le simulazioni numeriche possano tenere conto
+del gas che forma le stelle, delle stelle che possono esplodere e arricchire il gas circostante con nuovi elementi,
+di come le tecniche di simulazione modellino la formazione dei buchi neri supermassicci e di come modellino i potenti getti che essi possono emettere.</p>
+<h2>Riepilogo della lezione IV: ammassi di galassie deboli ai raggi X</h2>
+<p>Infine, la <b>quarta lezione</b> indaga un argomento all'avanguardia nell'astrofisica:
+un piccolo tassello del puzzle molto più grande incentrato sul porre vincoli alla cosmologia del nostro Universo.
+In particolare esamineremo perché l'emissione di raggi X di alcuni ammassi di galassie è molto debole (come pubblicato in Ragagnin et al. <a href="https://www.aanda.org/articles/aa/abs/2022/10/aa44397-22/aa44397-22.html">2022</a>). </p>
+<p>Questo è importante perché il conteggio del numero di ammassi è difficile e gli studi osservativi
+devono modellare correttamente i possibili oggetti deboli ai raggi X mancanti.
+Pertanto è importante anche sapere che tipo di oggetti si rischia eventualmente di perdere.</p>
+<p>Le simulazioni numeriche sono uno strumento fantastico per risolvere questi problemi:
+partono da una distribuzione omogenea di materia e, man mano che la simulazione al computer prosegue, 
+troviamo "magicamente" 
+<span title="Guarda l'immagine della simulazione nel banner della sezione precedente:
+vedrai la materia distribuita in filamenti e nodi (dove risiedono gli ammassi di galassie più massicci)">
 filamenti
-</span> e ammassi che si formano grazie
-al fatto che crescono attirando la materia circostante.
-All'interno di questi "gemelli digitali" del nostro Universo, possiamo cercare ammassi e sezionare le loro componenti gassose e stellari:
-possiamo seguirli nel tempo o rieseguirli con diverse fisiche
-per comprendere l'impronta di un specifico meccanismo fisico sulle proprietà degli ammassi di galassie
-(ad esempio, potremmo rieseguire la simulazione di un ammasso con o senza permettere la formazione di buchi neri supermassicci
-e vedere come questo impatti il gas circostante)
-Le analisi sui dati simulati mostrano che almeno nelle nostre simulazioni
-<b>gli ammassi deboli in raggi X tendono ad essere vecchi</b>.</p>
-<p>Sì, ha senso parlare dell'"età" di un ammasso di galassie, e può essere giovane o vecchia a seconda di quanti <span title="Per dare un'idea, l'Universo ha attualmente un'età di 13-14 miliardi di anni, mentre un ammasso di galassie ha un'età di 5-6 miliardi di anni">miliardi di anni fa</span> si sono formati:
-gli ammassi più piccoli si muovono lungo i filamenti e fluiscono verso i nodi vicini, spesso "scontrandosi" l'uno con l'altro, così <i>fondendosi</i> insieme e diventando un nuovo, più massiccio ammasso di galassie.</p>
-<p>Esiste un'ipotesi convincente per cui gli aloni deboli ai raggi X siano più vecchi: e se, negli ammassi di galassie più antichi, un buco nero centrale (in media) avesse impoverito l'ammasso di gas?
-Mentre un buco nero è
+</span> e ammassi che si formano grazie al fatto che crescono attraendo la materia circostante.
+All'interno di questi "gemelli digitali" dei nostri Universi, possiamo cercare gli ammassi e sezionare le loro componenti gassose e stellari:
+possiamo tracciarli nel tempo o ri-simularli con una fisica diversa
+per comprendere l'impronta di uno specifico meccanismo fisico sulle proprietà degli ammassi di galassie
+  (ad esempio, potremmo ri-simulare un ammasso con o senza la formazione di buchi neri supermassicci
+e vedere come questo influisca sul gas circostante).
+Le analisi sui dati simulati mostrano che, almeno nelle nostre simulazioni,
+<b>gli ammassi deboli ai raggi X tendono ad essere vecchi</b>.</p>
+<p>Sì, ha senso parlare di "età" di un ammasso di galassie, e questo può essere giovane o vecchio a seconda di quanti 
+<span title="Per mettere le cose in prospettiva, l'Universo ha ora un'età di 13-14 miliardi di anni (Gyr), mentre un ammasso di galassie ha un'età di 5-6 miliardi di anni">miliardi di anni fa</span> si è formato:
+ammassi più piccoli si muovono nei filamenti e fluiscono nei nodi vicini, spesso "scontrandosi" l'uno con l'altro, fondendosi così (<i>merging</i>) insieme e diventando un nuovo ammasso di galassie più massiccio.</p>
+<p>Esiste un'ipotesi convincente sul perché gli aloni deboli ai raggi X siano più vecchi: e se negli ammassi di galassie vecchi un buco nero centrale avesse (in media) deprivato l'ammasso del suo gas?
+Sebbene un buco nero sia trascurabilmente
 <span title="
-Il buco nero supermassiccio al centro della nostra galassia ha un raggio stimato
-di circa 10 volte quello del Sole (e una massa 4-10 milioni di volte superiore);
-confronta con la dimensione di un ammasso di galassie
-(vedi il tooltip sul Mpc sopra per maggiori dettagli sul confronto)
-">trascurabile rispetto a un ammasso di galassie</span>,
+Si stima che il buco nero supermassiccio al centro della nostra galassia
+abbia un raggio di circa 10 volte quello del Sole (e una massa che è 4-10 milioni di volte superiore);
+confrontato con le dimensioni di un ammasso di galassie
+(si veda il tooltip sopra sul Mpc per maggiori dettagli sul confronto)
+">piccolo rispetto a un ammasso di galassie</span>,
 il gas che cade verso il buco nero,
-contrariamente all'aspettativa comune,
-non necessariamente vi entra, ma può essere
+contrariamente alle aspettative comuni,
+non necessariamente vi entra, ma può venire
 <span title="
-Mentre il gas cade nel buco nero, diventa sempre più denso e si riscalda per attrito e shock di accrescimento,
-e, come combinazione del gas rotante (che ora è così caldo da diventare plasma), dei campi magnetici,
-e della rotazione del buco nero, parte del gas, invece di cadere,
-viene espulso (nello scenario più spettacolare) o
-spinto via a causa della pressione dovuta al riscaldamento del gas
-(in generale, il gas a temperatura più alta tende a espandersi)
+Man mano che il gas cade nel buco nero diventa sempre più denso e si riscalda per via dell'attrito e degli shock da accrescimento;
+come combinazione del gas in rotazione (che ora è così caldo da diventare un cosiddetto plasma), dei campi magnetici
+e della rotazione del buco nero, parte del gas, invece di cadere dentro,
+viene espulsa (nello scenario più spettacolare) o
+semplicemente spinta via a causa della pressione dovuta al riscaldamento del gas stesso
+(in generale, il gas a temperatura più elevata tende ad espandersi)
 ">espulso</span>
 dall'ammasso di galassie stesso.</p>
 <figure style="float:left; margin-right:0.5em;  max-width:50%">
-  <img alt="deplezione del gas negli ammassi di galassie da AGN" src="ms0735.jpg">
+  <img alt="galaxy clusters gas depletion from AGN" src="ms0735.jpg">
   <figcaption>
-    Crediti: Immagine di Hubble e Chandra: <a href="https://science.nasa.gov/asset/hubble/composite-image-of-galaxy-cluster-ms-0735/">NASA</a>,
-    ESA, CXC, STScI e B. McNamara (Università di Waterloo); Immagine del Very Large Array Telescope: NRAO e 
-    <a href="https://www.physik.uni-hamburg.de/en/hs/group---other/associates/laura-birzan.html">L. Birzan</a> e <a href="https://www.icts.res.in/sites/default/files/ERG2015-Laura-Birzan-17-10-2015.pdf">team</a>
-    (Università dell'Ohio)
+    Credits: Hubble and Chandra Image: <a href="https://science.nasa.gov/asset/hubble/composite-image-of-galaxy-cluster-ms-0735/">NASA</a>,
+    ESA, CXC, STScI, and B. McNamara (University of Waterloo); Very Large Array Telescope Image: NRAO, and 
+    <a href="https://www.physik.uni-hamburg.de/en/hs/group---other/associates/laura-birzan.html">L. Birzan</a> and <a href="https://www.icts.res.in/sites/default/files/ERG2015-Laura-Birzan-17-10-2015.pdf">team</a>
+    (Ohio University)
   </figcaption>
 </figure>
 
-<p>L'immagine qui a sinistra è una sovrapposizione di varie osservazioni di ammassi di galassie in luce visibile dal telescopio Hubble
+<p>L'immagine qui a sinistra è una sovrapposizione di varie osservazioni dell'ammasso di galassie:
+luce visibile dal telescopio Hubble
 (l'ammasso di galassie è così distante che ogni punto giallo è una galassia come la nostra Via Lattea),
-e in raggi X dal telescopio Chandra (in rosso-blu), si può notare come il <b>gigantesco getto rosso</b> possa 
+e raggi X dal telescopio Chandra (in rosso-blu); si noti come il <b>gigantesco getto rosso</b> possa 
 essere così enorme da 
-coprire una distanza così lunga da superare persino la separazione spaziale tra varie galassie: partendo dal centro dell'ammasso,
-ci sono situazioni come quella nell'immagine in cui può raggiungere
-l'estremità più lontana. <b>Questo è quanto possono essere potenti i getti dei buchi neri supermassicci.</b></p>
-<p>Le simulazioni suggeriscono anche che gli ammassi di galassie più vecchi tendono ad essere morfologicamente più rotondi rispetto agli ammassi giovani (che si sono appena formati e ci vuole tempo perché il gas si termalizzi). In conclusione, caratterizzare l'origine degli ammassi di galassie deboli nei raggi X può aiutare gli studi osservativi a modellare meglio questi oggetti scarsamente risolti o mancanti.</p>
+coprire una distanza talmente lunga da superare persino la separazione spaziale di varie galassie: partendo dal centro dell'ammasso,
+ci sono situazioni come quella nella foto in cui può raggiungere
+la sua estremità finale. <b>Ecco quanto possono essere potenti i getti dei buchi neri supermassicci.</b></p>
+<p>Le simulazioni suggeriscono anche che gli ammassi di galassie vecchi tendono ad essere morfologicamente più rotondi
+rispetto a quelli giovani (questi ultimi si sono appena formati e ci vuole tempo prima che il gas si termalizzi).
+In conclusione, caratterizzare l'origine degli ammassi di galassie deboli ai raggi X può aiutare gli studi osservativi
+a modellare meglio questi oggetti poco risolti o mancanti.</p>
 <h2>Lezioni</h2>
-<p>(lavoro in corso)</p>
+<p>(lavori in corso)</p>
 <ul>
-<li><span class="nolink">Dal Big Bang agli ammassi di galassie: una panoramica storica</span></li>
-<li><span class="nolink">Le simulazioni numeriche come strumento per interpretare le osservazioni</span></li>
-<li><span class="nolink">Simulare la formazione stellare e la fisica dei buchi neri: simulazioni idrodinamiche</span></li>
-<li><span class="nolink">Perché alcuni ammassi a raggi X sono deboli?</span></li>
+<li><span class="nolink">Dal Big Bang agli ammassi di galassie: una panoramica storica</a></li>
+<li><span class="nolink">Le simulazioni numeriche come controparte per interpretare le osservazioni</a></li>
+<li><span class="nolink">Simulare la formazione stellare e la fisica dei buchi neri: simulazioni idrodinamiche</a></li>
+<li><span class="nolink">Perché alcuni ammassi di galassie sono deboli ai raggi X?</a></li>
 </ul>
       
     </article>
