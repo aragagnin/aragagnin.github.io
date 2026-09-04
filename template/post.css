@@ -159,7 +159,7 @@ img {
 
 figcaption {
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #6b7280;
   font-style: italic;
 }
@@ -198,7 +198,8 @@ iframe {
 
 
 /* https://stackoverflow.com/questions/36966873/tooltip-using-css-only */
-[tip]{
+
+[tip], [title], .has-tooltip{
   cursor:help;
   margin-left:0.2rem;
   display: inline;
@@ -206,7 +207,7 @@ iframe {
   margin-right:1.2rem;
 }
 
-[tip]:after{
+[tip]:after, [title]:after, .has-tooltip:after{
   background: black;
   color: white;
   font-size:0.8rem;
@@ -244,3 +245,32 @@ background: #737373;
     display:inline-block;
 }
 */
+
+
+.has-tooltip {
+  position: relative;
+}
+
+.has-tooltip .tooltip {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+
+  width: max-content;
+  max-width: calc(100vw - 30px);
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  padding: 8px 12px;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  z-index: 1000;
+
+}
+
+.has-tooltip:hover .tooltip {
+  display: block;
+}

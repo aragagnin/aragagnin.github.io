@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speeding up cosmological hydrodynamic simulations exploiting space-filling curve</title>
-  <meta name="keywords" content="n, e, i, g, h, b, o, u, r, -, s, e, a, r, c, h, ,,  , t, r, e, e,  , w, a, l, k, ,,  , s, p, a, c, e, -, f, i, l, l, i, n, g,  , c, u, r, v, e, ,,  , S, F, C, ,,  , H, P, C, ,, g, a, d, g, e, t, ,,  , c, o, s, m, o, l, o, g, y, ,,  , c, o, s, m, o, l, o, g, i, c, a, l,  , s, i, m, u, l, a, t, i, o, n, s, ,,  ,  , h, i, l, b, e, r, t, ,,  , p, e, a, n, o, ,,  , S, P, H">
+  <meta name="keywords" content="neighbour-search, tree walk, space-filling curve, SFC, HPC,gadget, cosmology, cosmological simulations,  hilbert, peano, SPH">
   <link rel="stylesheet" href="/template/post.css">
   <meta name="description" content="I profiled Gadget3 hydrodynamic cosmological simulations run and found tree walk was a bottlenceck, I exploited space-filling curve hilbert ordering to make the neighbour search faster">
   <meta name="keywords" content="cosmology, galaxy clusters, numerical simulations, magneticum, x-ray, eRosita, XMM, Ragagnin">
@@ -154,4 +154,15 @@ Even if each search is slightly more expensive, the total speedup can still be v
     <a href="/">&laquo; Antonio Ragagnin Homepage</a>
   </footer>
 </body>
+<script>
+  document.querySelectorAll('[title]').forEach(el => {
+  const text = el.getAttribute('title');
+  const tooltip = document.createElement('span');
+  tooltip.className = 'tooltip';
+  tooltip.textContent = text;
+  el.classList.add('has-tooltip')
+  el.appendChild(tooltip);
+  el.removeAttribute('title');
+});
+</script>
 </html>

@@ -68,4 +68,15 @@
     <a href="/">&laquo; Antonio Ragagnin Homepage</a>
   </footer>
 </body>
+<script>
+  document.querySelectorAll('[title]').forEach(el => {
+  const text = el.getAttribute('title');
+  const tooltip = document.createElement('span');
+  tooltip.className = 'tooltip';
+  tooltip.textContent = text;
+  el.classList.add('has-tooltip')
+  el.appendChild(tooltip);
+  el.removeAttribute('title');
+});
+</script>
 </html>
