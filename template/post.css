@@ -29,12 +29,11 @@ footer, footer a{
 
 }
 .alert {
-    padding: 20px;
+    padding: 0.5em;
     background-color: #f44336;
     color: white;
-    opacity: 0.83;
     transition: opacity 0.6s;
-    margin-bottom: 15px;
+    border-radius:0.2em;
 }
 
 .alert.success {background-color: #04AA6D;}
@@ -145,7 +144,9 @@ th {
 
 /* --- Media (Images, Figures, Iframes) --- */
 figure {
-  margin: 2.5rem 0;
+  background-color: #fefefe;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -273,4 +274,21 @@ background: #737373;
 
 .has-tooltip:hover .tooltip {
   display: block;
+}
+
+.update{
+  color:gray;
+  margin:0;
+  font-size:small;
+  font-style:italic;
+}
+
+.nolink:before{
+  content: '🚧'
+}
+
+.nolink{
+      text-decoration: underline;
+    color: gray;
+    cursor: pointer;
 }
