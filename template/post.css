@@ -200,7 +200,7 @@ iframe {
 
 /* https://stackoverflow.com/questions/36966873/tooltip-using-css-only */
 
-[tip], [title], .has-tooltip{
+[tip], /*[title],*/ .has-tooltip{
   cursor:help;
   margin-left:0.2rem;
   display: inline;
@@ -208,7 +208,7 @@ iframe {
   margin-right:1.2rem;
 }
 
-[tip]:after, [title]:after, .has-tooltip:after{
+[tip]:after, /*[title]:after,*/ .has-tooltip:after{
   background: black;
   color: white;
   font-size:0.8rem;
@@ -291,4 +291,17 @@ background: #737373;
       text-decoration: underline;
     color: gray;
     cursor: pointer;
+}
+
+.footnote {
+    font-size: 0.75rem;
+    color: #444;
+}
+
+.footnote p{
+  margin: 0; padding: 0;
+}
+
+sup {
+    margin-right: 0.2rem;
 }
