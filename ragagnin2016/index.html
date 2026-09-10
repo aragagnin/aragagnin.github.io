@@ -17,7 +17,7 @@
   <section>
     <h1>Speeding up cosmological hydrodynamic simulations exploiting space-filling curve</h1>
     <article>
-    <p class="update">Last update: 02/09/2026; </p>
+    <p class="update">Last update: 10/09/2026; </p>
     
     
     
@@ -57,67 +57,64 @@ As a result, nearby particle in memory are also nearby particle in space. Can we
 
 <h2>The Insight</h2>
 <figure>
-  <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk (left), and Ragagnin+2016 green-tree technique exploiting particle space filling curve ordering (right)" src="ragagnin2016_sketch.png">
-  <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
+<img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk (left), and Ragagnin+2016 green-tree technique exploiting particle space filling curve ordering (right)" src="ragagnin2016_sketch.png">
+<figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
 </figure>
 
 <p>Gadget3 orders its particles using a 
-  <a href="https://en.wikipedia.org/wiki/Hilbert_curve">Hilbert space-filling curve</a> 
-  for <b>domain decomposition</b>. 
-  The Hilbert curve has a key property: points nearby along the curve are also nearby in 3D space. 
-  So particles stored consecutively in memory are physically close,
-  and physically close particles share most of their neighbours.</p>
+<a href="https://en.wikipedia.org/wiki/Hilbert_curve">Hilbert space-filling curve</a> 
+for <b>domain decomposition</b>. 
+The Hilbert curve has a key property: points nearby along the curve are also nearby in 3D space. 
+So particles stored consecutively in memory are physically close,
+and physically close particles share most of their neighbours.</p>
 <p>The fix, which I called <b>Neighbour Recycling</b>: instead of one tree walk per particle,
-  group nearby particles together and perform a single tree walk for the whole group,
-  over a slightly larger radius.</p>
+group nearby particles together and perform a single tree walk for the whole group,
+over a slightly larger radius.</p>
 <p>To handle Gadget3's wildly varying densities, the grouping radius is made adaptive: 
-  <code>R = f * hsml</code>, (where hsml is the SPH smoothing length),
-  and the number of particles in a group is <code>N_group = R^3</code>. </p>
+<code>R = f * hsml</code>, (where hsml is the SPH smoothing length),
+and the number of particles in a group is <code>N_group = R^3</code>. </p>
 <h2>How to find the optimal value for <code>f</code> parameter?</h2>
 <p>If <code>f</code> is <b>too small</b>, we have no groupings and we revert to legacy-Gadget3,
-    if <code>f</code> is <b>too large</b>, we will create too large neighbour groups and we will take
-    too much time in filtering them.. so there must be a compromise where the code is fastest: <b>for which value of f</b>? </p>
-<pre><code>In a ideliazied homogeneus setup - the number of neigbour of a particle
-</code></pre>
-<p>scales as <code>N_ngb ~ hsml^3</code>, the superset of neighbour candidets 
-  as <code>N_candidates ~ (R + hsml)^3</code>.
-  There it is easy to derive that <code>f = (N_candidates/N_ngb)^1/3 - 1 = (N_group/N_ngb)^1/3</code>.</p>
+if <code>f</code> is <b>too large</b>, we will create too large neighbour groups and we will take
+too much time in filtering them.. so there must be a compromise where the code is fastest: <b>for which value of f</b>? </p>
+<p>In a ideliazied homogeneus setup - the number of neigbour of a particle
+scales as <code>N_ngb ~ hsml^3</code>, the superset of neighbour candidets 
+as <code>N_candidates ~ (R + hsml)^3</code>.
+There it is easy to derive that <code>f = (N_candidates/N_ngb)^1/3 - 1 = (N_group/N_ngb)^1/3</code>.</p>
 <p>To find <code>f</code> we need to compute the time spent in neighbour search and minimize it.
-  In legacy Gadget for instance, it would be <code>T = N_active * N_ngb</code>,
-  where <code>N_active</code> is the number of active particles in this timestep and
-    <code>N_ngb</code> is the number of neighbours (tipically <code>N_ngb = 295</code>),
-    given that tree walk neighbour search scales with the number of neighbours (see <a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search">wikipedia</a>).</p>
-<pre><code>When it comes to the neighbour reciclying the number of searches goes with
-</code></pre>
-<p>the number of groups <code>N_groups = N_active/N_group</code>
-  and then an additional term needed to filter out the exta neighbours candidates 
-  for each active particle (note this is a very crude and naive estimate, just to get an approximate evaluation). So we obtain:
-<br />
+In legacy Gadget for instance, it would be <code>T = N_active * N_ngb</code>,
+where <code>N_active</code> is the number of active particles in this timestep and
+  <code>N_ngb</code> is the number of neighbours (tipically <code>N_ngb = 295</code>),
+  given that tree walk neighbour search scales with the number of neighbours (see <a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search">wikipedia</a>).</p>
+<p>When it comes to the neighbour reciclying the number of searches goes with 
+the number of groups <code>N_groups = N_active/N_group</code>
+and then an additional term needed to filter out the exta neighbours candidates 
+for each active particle (note this is a very crude and naive estimate, just to get an approximate evaluation). So we obtain:</p>
 <pre>
-    T = N_groups * N_ngb  + #<- tree walks
-      + N_active * N_candidates #<-filtering
-  </pre></p>
+  T = N_groups * N_ngb  + #<- tree walks
+    + N_active * N_candidates #<-filtering
+</pre>
 <p>This expression can be minimised analitically (N_active can be factorised and act as an overall constant),
-  and one can obtain an analitical value of <code>f ~ 0.4.</code></p>
+and one can obtain an analitical value of <code>f ~ 0.4.</code></p>
 <p>In the paper <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a>
-  we find the optimal constant <b>f = 0.5</b> was found numerically,
-  and I think it is <b>astonishing</b> how the above analytical computation provided
-  a grouping radius that is now since long used in Gadget - succesfully - as optimal value.</p>
+we find the optimal constant <b>f = 0.5</b> was found numerically,
+and I think it is <b>astonishing</b> how the above analytical computation provided
+a grouping radius that is now since long used in Gadget - succesfully - as optimal value.</p>
 <h2>Results</h2>
 <p>Tested on the Magneticum box5/hr, simulation (18 Mpc/h, 2 x 81<sup>3</sup> particles, 8 MPI processes),
 The number of neighbour search drops drastically, close to a factor 10. 
 Even if each search is slightly more expensive, the total speedup can still be very large.</p>
 <figure>
-  <img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk speedup thanks to Ragagnin+2016 green-tree technique aware of space filling curve ordering of particles" src="ragagnin2016_speedup.png">
-  <figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
+<img alt="Gadget3 (and OpenGadgdet3) neighbour search tree walk speedup thanks to Ragagnin+2016 green-tree technique aware of space filling curve ordering of particles" src="ragagnin2016_speedup.png">
+<figcaption>From <a href="https://ui.adsabs.harvard.edu/abs/2016pcre.conf..411R/abstract">Ragagnin et al. (2016)</a></figcaption>
 </figure>
 
 <h2>Final remarks</h2>
 <p>The technique doesn't rely on anything Gadget3-specific beyond the space-filling curve ordering,
-  which most modern N-body codes already use. If your code spends more time finding neighbours than
-  computing physics, this idea is worth a look.</p>
+which most modern N-body codes already use. If your code spends more time finding neighbours than
+computing physics, this idea is worth a look.</p>
 <p>This technique can be activated in the SVN <b>Gadget3</b> code by using the switches <code>AR_GREENTREE_{DENSITY,HYDRA,CONDUCTION}</code>.
-  And is activated by <b>default in OpenGadget3</b> (see file <code>CodeBase/greentree.hpp</code>).</p>
+And is activated by <b>default in OpenGadget3</b> (see file <code>CodeBase/greentree.hpp</code>).</p>
 <figure>
   <a href="https://ebooks.iospress.nl/publication/42679"><img alt="Ragagnin et al. 2016 ParCo paper that exploits teh fact that neraby particles in memory are nearby in space (thanks to space filling curve ordering), technique is called Ragagnin et al. 2016" src="ragagnin2016_book.png"></a>
   <figcaption>
